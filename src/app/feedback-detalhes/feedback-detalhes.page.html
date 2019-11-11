@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-toolbar>
+             <ion-title>Detalhes de {{feedback.nome}}
+             </ion-title>
+      </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  <form [formGroup]="formGroup">
+    
+    <ion-list>
+        <ion-item>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>
+                <p>Nome</p>
+              </ion-label>
+          <ion-input formControlName="nome" value="{{feedback.nome}}" type="text">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="pin" slot="start"></ion-icon>
+            <ion-label>
+                <p>Atuação</p>
+              </ion-label>
+          <ion-input formControlName="atuacao" value="{{feedback.atuacao}}" type="text">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="heart" slot="start"></ion-icon>
+            <ion-label>
+                <p>Satisfação</p>
+              </ion-label>
+          <ion-input formControlName="satisfacao" value="{{feedback.satisfacao}}" type="text">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="bulb" slot="start"></ion-icon>
+            <ion-label>
+                <p>Sugestão</p>
+              </ion-label>
+          <ion-input formControlName="sugestao" value="{{feedback.sugestao}}" type="text">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-label>
+                <p>Email</p>
+              </ion-label>
+          <ion-input formControlName="email" value="{{feedback.email}}" type="text">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="" slot="start"></ion-icon>
+
+                      <ion-label>
+                <p>Nota Geral</p>
+              </ion-label>
+            
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <div class="estrelas">
+          <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
+          <label for="cm_star-1"><i class="fa"></i></label>
+          <input type="radio" id="cm_star-1" name="fb" value="1"/>
+          <label for="cm_star-2"><i class="fa"></i></label>
+          <input type="radio" id="cm_star-2" name="fb" value="2"/>
+          <label for="cm_star-3"><i class="fa"></i></label>
+          <input type="radio" id="cm_star-3" name="fb" value="3"/>
+          <label for="cm_star-4"><i class="fa"></i></label>
+          <input type="radio" id="cm_star-4" name="fb" value="4"/>
+          <label for="cm_star-5"><i class="fa"></i></label>
+          <input type="radio" id="cm_star-5" name="fb" value="5"/>
+        </div>
+        </ion-item>
+  </ion-list>
+
+  <ion-button color="tertiary" expand="full" (click)="atualizar()">Atualizar</ion-button>
+  <ion-button color="tertiary" expand="full" (click)="voltar()">Voltar</ion-button>
+  <ion-button color="danger" expand="full" (click)="excluir()">Excluir</ion-button>
+  </form>
+  </ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "appUser",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

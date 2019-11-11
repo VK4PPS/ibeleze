@@ -1,0 +1,32 @@
+:host {
+    .user-photo ion-avatar {
+      margin: 0 auto;
+      width: 220px;
+      height: 220px;
+    }
+    ion-list {
+      margin-top: 24px;
+      p {
+        font-size: 10px;
+        font-weight: 400;
+        padding-bottom: 4px;
+      };
+      h2 {
+        font-weight: 400;
+        opacity: .5;
+      }
+    }
+};
+.alertstar{
+  button{
+       width: 40px;
+       margin: 0 !important;
+       background-image:url('https://aws1.discourse-cdn.com/ionicframework/original/3X/1/8/18d4e7ee4cfc7b24b4f7921eba6f6f2892112010.png');
+       background-repeat: no-repeat;
+       background-position: center;
+       color:white !important;
+  }
+  .alert-button-group{padding:0; margin-top: 10px; flex-direction: row; justify-content: space-around;}
+  border-radius: 12px;
+  .alert-wrapper{border-radius: 12px;}
+};

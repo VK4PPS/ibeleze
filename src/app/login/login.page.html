@@ -1,0 +1,30 @@
+<ion-header class="padding">
+</ion-header>
+<ion-content padding>
+        <div class="user-photo" padding-top>
+          <ion-avatar><img src="https://i.imgur.com/xjWsSja.png">
+          </ion-avatar>
+        </div>
+  <ion-list>
+      <ion-item>
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>
+              <p>Email</p>
+            </ion-label>
+        <ion-input type="text" value="" [(ngModel)]="email" >
+          </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="key" slot="start"></ion-icon>
+          <ion-label>
+              <p>Senha</p>
+            </ion-label>
+        <ion-input type="password" value="" [(ngModel)]="senha" >
+          </ion-input>
+      </ion-item>
+  </ion-list>
+  <ion-button color="tertiary" expand="full" (click)="login()">Entrar</ion-button>
+  <ion-button color="tertiary" expand="full" (click)="goNovoUsuario()">Cadastrar</ion-button>
+  <div class="passwordforget" (click)="goNovaSenha()"><p>Esqueci minha senha</p></div>
+
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+           <ion-title>Olá {{perfil.nome}} {{perfil.sobrenome}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="user-photo" padding-top>
+    <ion-avatar>
+      <img src="{{imagem}}">
+    </ion-avatar>
+  </div>
+<ion-item>
+  <input type="file" (change)="enviaArquivo($event)" />
+</ion-item>
+
+<form [formGroup]="formGroup">
+  <ion-list>
+      <ion-item>
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>
+              <p>Nome</p>
+            </ion-label>
+        <ion-input formControlName="nome" value="{{perfil.nome}}" type="text">
+          </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>
+              <p>Sobrenome</p>
+            </ion-label>
+        <ion-input formControlName="sobrenome" value="{{perfil.sobrenome}}" type="text">
+          </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="call" slot="start"></ion-icon>
+          <ion-label>
+              <p>Telefone</p>
+            </ion-label>
+        <ion-input formControlName="telefone" value="{{perfil.telefone}}" type="text">
+          </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-label>
+              <p>Email</p>
+            </ion-label>
+        <ion-input formControlName="email" value="{{perfil.email}}" type="text">
+          </ion-input>
+      </ion-item>
+
+</ion-list>
+<ion-button color="tertiary" expand="full" (click)="atualizar()">Atualizar dados</ion-button>
+<ion-button color="tertiary" expand="full" (click)="voltar()">Voltar</ion-button>
+
+</form>
+</ion-content>

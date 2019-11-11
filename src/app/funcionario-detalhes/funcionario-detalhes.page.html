@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-toolbar>
+             <ion-title>Detalhes de {{funcionario.nome}}
+             </ion-title>
+      </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <div class="user-photo" padding-top>
+      <ion-avatar>
+        <img src="{{imagem}}">
+      </ion-avatar>
+    </div>
+  <ion-item>
+    <input type="file" (change)="enviaArquivo($event)" />
+  </ion-item>
+  
+  <form [formGroup]="formGroup">
+    
+    <ion-list>
+        <ion-item>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>
+                <p>Nome</p>
+              </ion-label>
+          <ion-input formControlName="nome" value="{{funcionario.nome}}" type="text">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="" slot="start"></ion-icon>
+            <ion-label>
+                <p>Sobrenome</p>
+              </ion-label>
+          <ion-input formControlName="sobrenome" value="{{funcionario.sobrenome}}" type="text">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="cash" slot="start"></ion-icon>
+            <ion-label>
+                <p>Função</p>
+              </ion-label>
+          <ion-input formControlName="funcao" value="{{funcionario.funcao}}" type="text">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-label>
+                <p>E-mail</p>
+              </ion-label>
+          <ion-input formControlName="email" value="{{funcionario.email}}" type="text">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="pricetag" slot="start"></ion-icon>
+            <ion-label>
+                <p>Telefone</p>
+              </ion-label>
+          <ion-input formControlName="telefone" value="{{funcionario.telefone}}" type="text">
+            </ion-input>
+        </ion-item>
+  </ion-list>
+
+  <ion-button color="tertiary" expand="full" (click)="atualizar()">Atualizar</ion-button>
+  <ion-button color="tertiary" expand="full" (click)="voltar()">Voltar</ion-button>
+  <ion-button color="danger" expand="full" (click)="confirm()">Excluir</ion-button>
+  </form>
+  </ion-content>
