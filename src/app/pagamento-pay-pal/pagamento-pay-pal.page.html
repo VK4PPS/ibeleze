@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Pagamento via Paypal
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/PayPal.png"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>iBeleze</ion-card-subtitle>
+      <ion-card-title>Concluir Pagamento via PayPal</ion-card-title>
+      <ion-row>
+        <ion-col>
+          Total
+        </ion-col>
+        <ion-col>
+          {{currencyIcon}}{{paymentAmount}}
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="full" color="success" (click)="payWithPaypal()">Confirmar Pagamento</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

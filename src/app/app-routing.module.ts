@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'feedback-cadastro', loadChildren: './feedback-cadastro/feedback-cadastro.module#FeedbackCadastroPageModule' },
   { path: 'mapa', loadChildren: './mapa/mapa.module#MapaPageModule' },
   { path: 'location', loadChildren: './location/location.module#LocationPageModule' },
+  { path: 'pagamento-pay-pal', loadChildren: './pagamento-pay-pal/pagamento-pay-pal.module#PagamentoPayPalPageModule' },
 ];
 
 @NgModule({

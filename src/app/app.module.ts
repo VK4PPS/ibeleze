@@ -16,6 +16,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { PayPal } from '@ionic-native/paypal/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +29,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     AngularFireModule.initializeApp(firebaseConfig), 
     AngularFirestoreModule,
     AngularFireAuthModule,  
-    AngularFireStorageModule,
+    AngularFireStorageModule
   
   ],
   providers: [
@@ -35,7 +37,8 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthGuardService,
     CommonModule,
-    Geolocation
+    Geolocation,
+    PayPal
   ],
   bootstrap: [AppComponent]
 })

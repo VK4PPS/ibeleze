@@ -46,6 +46,10 @@ export class AppComponent {
       title: 'Seu Perfil',
       url: '/perfil',
       icon: 'person'
+    },{
+      title: 'Pagamento',
+      url: '/pagamento-pay-pal',
+      icon: 'person'
     },
     {
       title: 'Logoff',
