@@ -15,7 +15,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
-
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +34,8 @@ import { CommonModule } from '@angular/common';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthGuardService,
-    CommonModule
+    CommonModule,
+    Geolocation
   ],
   bootstrap: [AppComponent]
 })

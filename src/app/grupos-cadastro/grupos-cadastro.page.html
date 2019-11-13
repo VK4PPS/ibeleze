@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Grupos Cadastro</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form [formGroup]="formGroup"> <!-- vínculo com a variável formGroup  -->
+  <ion-list>
+        <ion-item>
+          <ion-label floating>nome</ion-label>
+          <ion-input formControlName="nome" type="text"></ion-input>
+          </ion-item>
+        <ion-item>
+            <ion-label floating>horas</ion-label>
+            <ion-input formControlName="horas" type="number"></ion-input>
+            </ion-item>
+          <ion-item>
+              <ion-label floating>Horas por Aula</ion-label>
+              <ion-input formControlName="horasPorAula" type="number"></ion-input>
+              </ion-item>
+              <ion-item style="display: none;">
+                <ion-input formControlName="idPessoa" type="text" ng-model="idUser" value="{{idUser}}"></ion-input>
+              </ion-item>
+</ion-list>
+<ion-button expand="full" (click)="cadastrar()">Cadastrar</ion-button>
+</form>
+</ion-content>

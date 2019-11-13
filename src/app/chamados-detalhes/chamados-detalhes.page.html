@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Chamados Cadastro</ion-title>
+      </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="formGroup">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>data</ion-label>
+        <ion-input formControlName="data" value="{{chamados.data}}" type="text">
+          </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>id Funcionario</ion-label>
+          <ion-input formControlName="idFuncionario"  value="{{chamados.idFuncionario}}" type="text">
+             </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Nome Equipamento</ion-label>
+          <ion-input formControlName="nomeEquipamento"  value="{{chamados.nomeEquipamento}}" type="text">
+            </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Defeito</ion-label>
+          <ion-input formControlName="defeito"  value="{{chamados.defeito}}" type="text">
+             </ion-input>
+      </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="atualizar()">Atualizar</ion-button>
+  <ion-button color="danger" expand="full" (click)="confirm()">Excluir</ion-button>
+  </form>
+</ion-content>

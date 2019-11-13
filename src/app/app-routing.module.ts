@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'feedback', loadChildren: './feedback/feedback.module#FeedbackPageModule' },
   { path: 'feedback-detalhes', loadChildren: './feedback-detalhes/feedback-detalhes.module#FeedbackDetalhesPageModule' },
   { path: 'feedback-cadastro', loadChildren: './feedback-cadastro/feedback-cadastro.module#FeedbackCadastroPageModule' },
-  
+  { path: 'mapa', loadChildren: './mapa/mapa.module#MapaPageModule' },
+  { path: 'location', loadChildren: './location/location.module#LocationPageModule' },
 ];
 
 @NgModule({

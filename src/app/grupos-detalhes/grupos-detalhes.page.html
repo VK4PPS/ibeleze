@@ -1,0 +1,102 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Grupos Cadastro</ion-title>
+      </ion-toolbar>
+</ion-header>
+<ion-content>
+    
+  <form [formGroup]="formGroup">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input formControlName="nome" value="{{grupos.nome}}" type="text">
+          </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Horas</ion-label>
+          <ion-input formControlName="horas"  value="{{grupos.horas}}" type="number">
+             </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Horas Por Aula</ion-label>
+          <ion-input formControlName="horasPorAula" formGroupName="horasPorAula" value="{{grupos.horasPorAula}}" type="number">
+            </ion-input>
+      </ion-item>
+  </ion-list>
+  <ion-row padding>
+      <ion-col size="6">
+          <ion-button expand="full" (click)="atualizar()">Atualizar</ion-button>
+      </ion-col>
+      <ion-col size="6">
+      </ion-col>
+      <ion-col size="4">
+          <ion-button color="danger" expand="full" (click)="confirm()">Excluir</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <ion-searchbar showCancelButton="focus" [(ngModel)]="busca" (ionChange)="buscar($event)" placeholder="Buscar Pessoas"></ion-searchbar>
+
+<ion-list>
+  <ion-item *ngFor="let item of listaPerfil" >
+    <ion-label>{{item.nome}}</ion-label>
+    <ion-label>{{item.email}}</ion-label>
+    <ion-icon name="add-circle" slot="end" (click)="cadastrar(
+    this.idDocumento = item.id,
+    this.nome = item.nome,
+    this.email = item.email)"></ion-icon>
+  </ion-item>
+</ion-list>
+
+<ion-toolbar color="primary">
+    <ion-title>Pessoas no Grupo</ion-title>
+  </ion-toolbar>
+
+<ion-list>
+    <ion-item *ngFor="let item of listaPessoaGrupo" >
+       <ion-label>{{item.nome}}</ion-label>
+       <ion-item></ion-item>
+      <ion-label>{{item.email}}</ion-label>
+      <ion-item></ion-item>
+      <ion-label> {{item.horas}}</ion-label>
+      <ion-item></ion-item>
+      <ion-input  type="number">{{(item.horas-this.minutosSoma) / this.grupos.horas*100}}%</ion-input>
+
+        <ion-button (click)="presente(
+          this.idDocumento = item.id,
+          this.idPessoa = item.idPessoa,
+          this.nome = item.nome,
+          this.email = item.email,
+          this.horas = item.horas)" color="primary">add 1 Presença</ion-button>
+
+
+          <ion-button (click)="falta(
+          this.idDocumento = item.id,
+          this.idPessoa = item.idPessoa,
+          this.nome = item.nome,
+          this.email = item.email,
+          this.horas = item.horas)" color="danger">add 1 Falta</ion-button>
+
+        <ion-button (click)="atraso3(
+          this.idDocumento = item.id,
+          this.idPessoa = item.idPessoa,
+          this.nome = item.nome,
+          this.email = item.email,
+          this.horas = item.horas)" color="danger">add Atraso 30 min</ion-button>
+
+        <ion-button (click)="atraso1(
+          this.idDocumento = item.id,
+          this.idPessoa = item.idPessoa,
+          this.nome = item.nome,
+          this.email = item.email,
+          this.horas = item.horas)" color="danger">add Atraso 1 hora</ion-button>
+
+      <ion-icon name="close" slot="end" (click)="excluirPessoaGrupo( this.idDocumento = item.id )"></ion-icon>
+    </ion-item>
+  </ion-list>
+    
+
+</ion-content>

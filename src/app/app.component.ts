@@ -52,6 +52,11 @@ export class AppComponent {
       url: '/logoff',
       icon: 'log-out'
     },
+    {
+      title: 'Mapa',
+      url: '/location',
+      icon: 'code-working'
+    },
   
   ];
 

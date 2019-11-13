@@ -13,13 +13,12 @@ export class MapaPage implements OnInit {
   style = 'mapbox://styles/mapbox/streets-v11';
   lat = -22.8994473;
   lng = -43.5589886;
-
+                
   constructor() {
-    (mapboxgl as typeof mapboxgl).accessToken =  environment.mapbox.accessToken;
+    (mapboxgl as typeof mapboxgl).accessToken = environment.mapbox.accessToken;
   }
 
   ngOnInit() {
-    
     
     this.map = new mapboxgl.Map({
       container: 'map',
@@ -29,7 +28,8 @@ export class MapaPage implements OnInit {
   });
 
 
-  }
+}
+
  
 
 }
