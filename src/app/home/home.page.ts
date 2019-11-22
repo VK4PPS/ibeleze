@@ -7,6 +7,35 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+lista: string[];
+
+  constructor() {
+    this.inicializar();
+  }
+
+   inicializar(){
+     this.lista = [
+       'Tratamento Corporal',
+       'Tratamento Facial',
+       'Depilação',
+       'Treinamento',
+       'Limpeza de Pele',
+       'Massagem relaxante',
+       
+     ];
+   }
+
+   buscar(ev: any) {
+
+    this.inicializar();
+
+    const val = ev.target.value;
+
+    if (val && val.trim() !== '') {
+      this.lista = this.lista.filter((item) =>{
+        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
+    }
+   }
 
 }

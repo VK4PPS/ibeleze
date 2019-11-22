@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -8,8 +7,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./mapa.page.scss'],
 })
 export class MapaPage implements OnInit {
-  map: mapboxgl.Map;
 
+<<<<<<< Updated upstream
   style = 'mapbox://styles/mapbox/streets-v11';
   lat = -22.8994473;
   lng = -43.5589886;
@@ -31,5 +30,12 @@ export class MapaPage implements OnInit {
 }
 
  
+=======
+
+  constructor() {
+  }
+
+  ngOnInit() {}
+>>>>>>> Stashed changes
 
 }
