@@ -13,8 +13,6 @@ export class LocationPage implements OnInit {
   map: mapboxgl.Map;
 
   style = 'mapbox://styles/mapbox/streets-v11';
-  lat = -22.8994473;
-  lng = -43.5589886;
                 
   constructor(private geolocation: Geolocation) {
     (mapboxgl as typeof mapboxgl).accessToken = environment.mapbox.accessToken;
@@ -22,29 +20,37 @@ export class LocationPage implements OnInit {
 
   ngOnInit() {
 
-    this.map = new mapboxgl.Map({
-      container: 'map',
-      style: this.style,
-      zoom: 13,
-      center: [this.lng, this.lat]
-    });
 
-    /*
+    
 
     this.geolocation.getCurrentPosition().then((resp) => {
 
     
+      console.log(resp.coords.longitude, resp.coords.latitude);
+
+
       this.map = new mapboxgl.Map({
         container: 'map',
         style: this.style,
         zoom: 13,
-        center: [resp.coords.longitude, resp.coords.latitude]
+        center: [resp.coords.longitude, resp.coords.latitude],
     });
+
+
+
+
+    this.map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+      enableHighAccuracy: true
+      },
+      trackUserLocation: true
+      }));
+
 
   }).catch((error) => {
     console.log('Error getting location', error);
   });
-*/
+
  
   }
 
