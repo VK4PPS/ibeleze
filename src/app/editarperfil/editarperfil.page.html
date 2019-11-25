@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+             <ion-title>Editar Perfil</ion-title>
+      </ion-toolbar>
+  </ion-header>
+  
+<ion-content>
+<form [formGroup]="formGroup">
+  <ion-list>
+    <ion-item>
+     
+      <ion-label floating>Pagamento</ion-label>
+    
+      <ion-input formControlName="pagamento" type="text">
+          <ion-icon name="card" slot="start"></ion-icon>
+         
+        </ion-input>
+    </ion-item>
+    <ion-item>
+ 
+        <ion-label floating>Favoritos</ion-label>
+     
+        <ion-input formControlName="favoritos" type="text">
+            <ion-icon name="star-half"></ion-icon>
+           </ion-input>
+    </ion-item>
+    <ion-item>
+     
+        <ion-label floating>Endereço</ion-label>
+   
+        <ion-input formControlName="endereco" type="text">
+            <ion-icon name="home"></ion-icon>
+           </ion-input>
+    </ion-item>
+    <ion-item>
+     
+        <ion-label floating>Carteira</ion-label>
+     
+        <ion-input formControlName="carteira" type="text">
+            <ion-icon name="card" slot="start"></ion-icon>
+           </ion-input>
+    </ion-item>
+    <ion-item>
+     
+        <ion-label floating>Cupons</ion-label>
+     
+        <ion-input formControlName="cupons" type="text">
+            <ion-icon name="paper"></ion-icon>
+           </ion-input>
+    </ion-item>
+    <ion-item>
+    
+        <ion-label floating>Notificações</ion-label>
+     
+        <ion-input formControlName="notificacoes" type="text">
+            <ion-icon name="notifications-off"></ion-icon>
+           </ion-input>
+    </ion-item>
+</ion-list>
+</form>
+</ion-content>

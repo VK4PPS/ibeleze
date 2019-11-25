@@ -2,13 +2,22 @@ export class Perfil{
     id : string;
     nome : string;
     email : string;
-    uid : string;
+  pagamento: any;
+  favoritos: any;
+  endereco: any;
+  carteira: any;
+  cupons: any;
+  notificacoes: any;
 
     setPerfil(obj : any, id : any){
         this.id = id;
-        this.nome = obj.nome;
-        this.email = obj.email;
-        this.uid = obj.uid;
+        this.pagamento = obj.pagamento;
+        this.favoritos = obj.favoritos;
+        this.endereco = obj.endereco;
+        this.carteira = obj.carteira;
+        this.cupons = obj.cupons;
+        this.notificacoes = obj.notificacoes;
+
 
     }
 }

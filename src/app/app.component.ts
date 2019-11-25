@@ -46,7 +46,13 @@ export class AppComponent {
       title: 'Seu Perfil',
       url: '/perfil',
       icon: 'person'
-    },{
+    },
+    {
+      title: 'Editar Perfil',
+      url: '/editarperfil',
+      icon: 'person'
+    },
+    {
       title: 'Pagamento',
       url: '/pagamento-pay-pal',
       icon: 'person'
