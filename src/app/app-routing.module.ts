@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'mapa', loadChildren: './mapa/mapa.module#MapaPageModule' },
   { path: 'location', loadChildren: './location/location.module#LocationPageModule' },
   { path: 'pagamento-pay-pal', loadChildren: './pagamento-pay-pal/pagamento-pay-pal.module#PagamentoPayPalPageModule' },
+  { path: 'editarperfil', loadChildren: './editarperfil/editarperfil.module#EditarperfilPageModule' },
 ];
 
 @NgModule({

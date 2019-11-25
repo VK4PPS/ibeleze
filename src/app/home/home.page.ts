@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,9 @@ export class HomePage {
 
 lista: string[];
 
-  constructor() {
+  constructor(
+    private router : Router
+  ) {
     this.inicializar();
   }
 
@@ -38,4 +41,7 @@ lista: string[];
     }
    }
 
+   goPage(x: string){
+    this.router.navigate([x]);
+  }
 }
