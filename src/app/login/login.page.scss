@@ -12,5 +12,10 @@
           text-align: right;
           color: gray;
         }
-
-     }
+      }
+        ion-content {
+          --width: 100%;
+          --height: 100%;
+      --background: rgb(131,102,177);
+      --background: linear-gradient(349deg, rgba(131,102,177,1) 0%, rgba(251,169,199,1) 100%);
+        }

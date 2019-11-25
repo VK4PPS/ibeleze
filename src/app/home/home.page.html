@@ -1,92 +1,59 @@
-<div class="bg">
-<ion-header >
-  <ion-toolbar >
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Inicio
-    </ion-title>
-  </ion-toolbar>
-  <div >
-  <ion-searchbar  showCancelButton animated placeholder="Buscar..." (click)="inicializar()"(ionChance)="buscar($event)"></ion-searchbar>
-</div>
-</ion-header>
-
-<ion-content>
-    <ion-grid class="bg">
+<ion-content class="bg" padding>
+    <div>
+        <ion-searchbar  showCancelButton animated placeholder="Buscar..." (click)="inicializar()"(ionChance)="buscar($event)"></ion-searchbar>
+      </div>
+    <ion-grid>
       <ion-row>
         <ion-col>
-          <div>
-          <img src="assets/dp.png">
-          </div>
+            <ion-card>
+                <ion-card-content>
+                    <img src="assets/img/12.svg">
+                </ion-card-content>
+                <ion-card-title>Depilação</ion-card-title>
+              </ion-card>
         </ion-col>
-        <ion-col>
-          <div>
-            <img src="assets/tc.png">
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <div>
-            <img src="assets/tf.png">
-          </div>
-        </ion-col>
-        <ion-col>
-          <div>
-            <img src="assets/tr.png">
-          </div>
-        </ion-col>
-        
-        
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <div>
-         <br>
-          </div>
-        </ion-col>
-        <ion-col>
-          <div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-       </div>
-        </ion-col>
-        
-        
-      </ion-row>
-      
+            <ion-col>
+                <ion-card>
+                    <ion-card-content>
+                        <img src="assets/img/12.svg">
+                    </ion-card-content>
+                    <ion-card-title>Depilação</ion-card-title>
+                  </ion-card>
+            </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-card>
+                        <ion-card-content>
+                            <img src="assets/img/12.svg">
+                        </ion-card-content>
+                        <ion-card-title>Depilação</ion-card-title>
+                      </ion-card>
+                </ion-col>
+                    <ion-col>
+                        <ion-card>
+                            <ion-card-content>
+                                <img src="assets/img/12.svg">
+                            </ion-card-content>
+                            <ion-card-title>Depilação</ion-card-title>
+                          </ion-card>
+                    </ion-col>
+                    </ion-row>
     </ion-grid>
+  </ion-content>
 
+  <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button (click)="goPage(x = 'perfil')">
+          <ion-icon name="person"></ion-icon>
+        </ion-tab-button>
 
-</ion-content>
-</div>
-
-<ion-grid class="naruto">
-  <ion-row>
-        <ion-col>
-          <div>
-              <img src="assets/n3.png">
-          </div>
-        </ion-col>
-
-  <ion-col>
-      <div>
-          <img src="assets/n2.png">
-      </div>
-  </ion-col>
-  <ion-col>
-      <div>
-          <img src="assets/n1.png">
-      </div>
-  </ion-col>
-</ion-row>
-</ion-grid>
-
+          <ion-tab-button (click)="goPage(x = 'home')">
+              <ion-icon name="home"></ion-icon>
+            </ion-tab-button>
+    
+        <ion-tab-button (click)="goPage(x = 'configs')">
+          <ion-icon name="settings"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
