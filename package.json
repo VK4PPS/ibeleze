@@ -33,13 +33,9 @@
     "cordova-browser": "6.0.0",
     "cordova-plugin-geolocation": "^4.0.2",
     "core-js": "^2.5.4",
-<<<<<<< Updated upstream
-    "firebase": "^7.2.2",
+    "firebase": "^7.3.0",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^1.5.0",
-=======
-    "firebase": "^7.3.0",
->>>>>>> Stashed changes
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
