@@ -8,34 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 export class MapaPage implements OnInit {
 
-<<<<<<< Updated upstream
-  style = 'mapbox://styles/mapbox/streets-v11';
-  lat = -22.8994473;
-  lng = -43.5589886;
-                
-  constructor() {
-    (mapboxgl as typeof mapboxgl).accessToken = environment.mapbox.accessToken;
-  }
-
-  ngOnInit() {
-    
-    this.map = new mapboxgl.Map({
-      container: 'map',
-      style: this.style,
-      zoom: 13,
-      center: [this.lng, this.lat]
-  });
-
-
-}
-
- 
-=======
 
   constructor() {
   }
 
   ngOnInit() {}
->>>>>>> Stashed changes
 
 }
