@@ -1,7 +1,10 @@
 <ion-content class="bg" padding>
-    <div>
-        <ion-searchbar  showCancelButton animated placeholder="Buscar..." (click)="inicializar()"(ionChance)="buscar($event)"></ion-searchbar>
-      </div>
+        <ion-searchbar showCancelButton (ionInput)="filterList($event)"></ion-searchbar>
+        <ion-list>
+          <ion-item *ngFor="let item of goalList">
+          <ion-label>{{item.goalName }}</ion-label>
+          </ion-item>
+        </ion-list>
     <ion-grid>
       <ion-row>
         <ion-col>

@@ -1,22 +1,56 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-lista: string[];
+  public goalList: any[];
+  public loadedGoalList: any[];
+
+// lista: string[];
 
   constructor(
-    private router : Router
+    private firestore: AngularFirestore,
+    // private router : Router
   ) {
-    this.inicializar();
+    // this.inicializar();
   }
 
-   inicializar(){
+  ngOnInit() {
+    this.firestore.collection(`goals`).valueChanges().subscribe(goalList => {
+      this.goalList = goalList;
+      this.loadedGoalList = goalList;
+    });
+  }
+
+  initializeItems(): void {
+    this.goalList = this.loadedGoalList;
+  }
+
+  filterList(evt) {
+    this.initializeItems();
+    const searchTerm = evt.srcElement.value;
+
+    if (!searchTerm) {
+      return;
+    }
+
+    this.goalList = this.goalList.filter(currentGoal => {
+      if (currentGoal.goalName && searchTerm) {
+        if (currentGoal.goalName.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
+          return true;
+        }
+        return false;
+      }
+    });
+  }
+
+  /* inicializar(){
      this.lista = [
        'Tratamento Corporal',
        'Tratamento Facial',
@@ -43,5 +77,5 @@ lista: string[];
 
    goPage(x: string){
     this.router.navigate([x]);
-  }
+  }*/
 }
