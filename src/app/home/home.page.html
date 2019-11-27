@@ -1,7 +1,7 @@
 <ion-content class="bg" padding>
         <ion-searchbar showCancelButton (ionInput)="filterList($event)"></ion-searchbar>
         <ion-list>
-          <ion-item *ngfor="let item of goalList">
+          <ion-item * ngfor="let item of goalList">
             <ion-label>{{ item.goalName }}</ion-label>
           </ion-item>
         </ion-list>
