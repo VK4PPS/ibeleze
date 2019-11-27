@@ -58,11 +58,6 @@ export class AppComponent {
       icon: 'person'
     },
     {
-      title: 'Logoff',
-      url: '/logoff',
-      icon: 'log-out'
-    },
-    {
       title: 'Mapa',
       url: '/location',
       icon: 'code-working'
@@ -76,6 +71,16 @@ export class AppComponent {
       title: 'Política de privacidade',
       url: '/privacidade',
       icon: 'person'
+    },
+    {
+      title: 'Sobre nós',
+      url: '/sobre',
+      icon: 'person'
+    },
+    {
+      title: 'Logoff',
+      url: '/logoff',
+      icon: 'log-out'
     },
   
   ];

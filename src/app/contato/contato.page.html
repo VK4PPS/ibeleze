@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="warning">
+  <ion-toolbar color="tertiary">
       <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -38,7 +38,7 @@
                   placeholder="Digite a sua mensagem aqui..."></ion-textarea>
           </ion-item>
       </ion-list>
-      <ion-button expand="block" color="warning" size="default" style="color: black;" [disabled]="!formGroup.valid" (click)="enviar()">Enviar
+      <ion-button color="tertiary" expand="full" (click)="enviar()">Enviar
       </ion-button>
   </form>
 </ion-content>
