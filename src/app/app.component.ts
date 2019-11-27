@@ -72,6 +72,11 @@ export class AppComponent {
       url: '/contato',
       icon: 'person'
     },
+    {
+      title: 'Política de privacidade',
+      url: '/privacidade',
+      icon: 'person'
+    },
   
   ];
 
