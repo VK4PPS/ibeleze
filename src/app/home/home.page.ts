@@ -9,25 +9,41 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class HomePage implements OnInit {
 
-  public goalList: any[];
-  public loadedGoalList: any[];
+  //public goalList: any[];
+  //public loadedGoalList: any[];
 
-// lista: string[];
+ lista: string[];
+ texto : string;
 
   constructor(
-    private firestore: AngularFirestore,
-    // private router : Router
+    private db: AngularFirestore,
+    private router : Router
   ) {
-    // this.inicializar();
+    this.inicializar();
   }
 
-  ngOnInit() {
+ ngOnInit() {
+    /*
     this.firestore.collection(`goals`).valueChanges().subscribe(goalList => {
       this.goalList = goalList;
       this.loadedGoalList = goalList;
-    });
+    });*/
   }
 
+  busca(){
+    console.log(this.texto);
+    
+    this.db.collection('funcionarios').ref.orderBy('nome').startAt(this.texto).endAt(this.texto+'\uf8ff').get().then(response=>{ 
+      
+        response.forEach(doc=>{ 
+        console.log(doc.data());
+      });
+
+  });
+
+    
+  }
+/*
   initializeItems(): void {
     this.goalList = this.loadedGoalList;
   }
@@ -46,11 +62,11 @@ export class HomePage implements OnInit {
           return true;
         }
         return false;
-      }
+      
     });
-  }
+  }*/
 
-  /* inicializar(){
+   inicializar(){
      this.lista = [
        'Tratamento Corporal',
        'Tratamento Facial',
@@ -77,5 +93,5 @@ export class HomePage implements OnInit {
 
    goPage(x: string){
     this.router.navigate([x]);
-  }*/
+  }
 }

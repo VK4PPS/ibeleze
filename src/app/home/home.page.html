@@ -1,28 +1,27 @@
 <ion-content class="bg" padding>
-        <ion-searchbar showCancelButton (ionInput)="filterList($event)"></ion-searchbar>
-        <ion-list>
-          <ion-item * ngfor="let item of goalList">
-            <ion-label>{{ item.goalName }}</ion-label>
-          </ion-item>
-        </ion-list>
+    <ion-item>
+        <ion-label position="floating">Floating Label</ion-label>
+        <ion-input (ionChange)="busca()" [(ngModel)]="texto"></ion-input>
+      </ion-item>
+  
     <ion-grid>
       <ion-row>
         <ion-col>
             <ion-card>
                 <ion-card-content>
-                    <img src="assets/img/12.svg">
+                    <img src="assets/img/dp.png">
                 </ion-card-content>
                 <ion-card-title>Depilação</ion-card-title>
-                <ion-icon name="search" slot="end" size="large" (click)="gosobre()"></ion-icon>
+                
               </ion-card>
         </ion-col>
             <ion-col>
                 <ion-card>
                     <ion-card-content>
-                        <img src="assets/img/12.svg">
+                        <img src="assets/img/tc.png">
                     </ion-card-content>
-                    <ion-card-title>Depilação</ion-card-title>
-                    <ion-icon name="search" slot="end" size="large" (click)="gosobre()"></ion-icon>
+                    <ion-card-title>Trat. Corporal</ion-card-title>
+                    
                   </ion-card>
             </ion-col>
             </ion-row>
@@ -30,19 +29,19 @@
                 <ion-col>
                     <ion-card>
                         <ion-card-content>
-                            <img src="assets/img/12.svg">
+                            <img src="assets/img/tr.png">
                         </ion-card-content>
-                        <ion-card-title>Depilação</ion-card-title>
-                        <ion-icon name="search" slot="end" size="large" (click)="gosobre()"></ion-icon>
+                        <ion-card-title>Treinamento</ion-card-title>
+                        
                       </ion-card>
                 </ion-col>
                     <ion-col>
                         <ion-card>
                             <ion-card-content>
-                                <img src="assets/img/12.svg">
+                                <img src="assets/img/tf.png">
                             </ion-card-content>
-                            <ion-card-title>Depilação</ion-card-title>
-                            <ion-icon name="search" slot="end" size="large" (click)="gosobre()"></ion-icon>
+                            <ion-card-title>Trat. Facial</ion-card-title>
+                            
                           </ion-card>
                     </ion-col>
                     </ion-row>
@@ -51,7 +50,7 @@
 
   <ion-tabs>
       <ion-tab-bar slot="bottom">
-        <ion-tab-button (click)="goPage(x = 'perfil')">
+        <ion-tab-button (click)="goPage(x = 'editarperfil')">
           <ion-icon name="person"></ion-icon>
         </ion-tab-button>
 
