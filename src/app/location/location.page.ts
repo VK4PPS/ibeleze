@@ -277,12 +277,14 @@ export class LocationPage implements OnInit {
 
         resp.target.addImage('cat', image);
 
+        //@ts-ignore
         resp.target.addLayer({
           id: 'locations',
           type: 'symbol',
           // Add a GeoJSON source containing place coordinates and information.
           source: {
             type: 'geojson',
+            
             data: stores
           },
           layout: {
