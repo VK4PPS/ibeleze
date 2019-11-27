@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'pagamento-pay-pal', loadChildren: './pagamento-pay-pal/pagamento-pay-pal.module#PagamentoPayPalPageModule' },
   { path: 'editarperfil', loadChildren: './editarperfil/editarperfil.module#EditarperfilPageModule' },  { path: 'contato', loadChildren: './contato/contato.module#ContatoPageModule' },
   { path: 'privacidade', loadChildren: './privacidade/privacidade.module#PrivacidadePageModule' },
+  { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },
 
 ];
 
