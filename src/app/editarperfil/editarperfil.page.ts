@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Perfil } from 'src/model/perfil';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ToastController, AlertController } from '@ionic/angular';
+import { ToastController, AlertController, LoadingController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-editarperfil',
@@ -11,64 +13,86 @@ import { ToastController, AlertController } from '@ionic/angular';
   styleUrls: ['./editarperfil.page.scss'],
 })
 export class EditarperfilPage implements OnInit {
-  
-  id : string; 
-  formGroup : FormGroup; 
-  perfil : Perfil = new Perfil(); 
 
-  constructor(private actRoute : ActivatedRoute, // capturar o ID
-    private formB : FormBuilder, // Inicializar o formulário
-    private db: AngularFirestore, // Banco de dados do firebase
-    private toastCtrl : ToastController, // Exibe uma mensagem
-    private router : Router, // Redirecionamento de páginas
-    private alertController : AlertController) { // Exibe mensagem de cofirmação
-    
-    this.id = this.actRoute.snapshot.paramMap.get('id');
+  formGroup : FormGroup;
+  idUser : string;
+  imagem : any;
 
-
-    this.formGroup = this.formB.group({
-      pagamento : [],
-      favoritos: [],  
-      endereco: [], 
-      carteira: [], 
-      cupons: [], 
-      notificacoes: [], 
-    })
-  }
-  
+  constructor(private formBuild : FormBuilder,
+    private auth : AngularFireAuth,
+    private db : AngularFirestore,
+    public firestorage : AngularFireStorage,
+    private loadingController : LoadingController,
+    private router : Router,) {
+      this.auth.user.subscribe(resp =>{
+        this.idUser = resp.uid;
+        this.loadPerfil();
+        this.downloadImage();
+      });
+     }
 
   ngOnInit() {
-
-    
-
-    console.log(localStorage.getItem("uid"))
-   
-    this.db.collection("editar-perfil") 
-    .doc(localStorage.getItem("uid")).get().subscribe(response=>{ 
-
-      this.perfil.id = localStorage.getItem("uid"); 
-      this.perfil.pagamento = response.data().pagamento;
-      this.perfil.favoritos = response.data().favoritos;
-      this.perfil.endereco = response.data().endereco;
-      this.perfil.carteira = response.data().carteira;
-      this.perfil.cupons = response.data().cupons;
-      this.perfil.notificacoes = response.data().notificacoes;
-      
-    })
-
   }
- 
-  goPage(idValue : string){
-    this.router.navigate(['editar-perfil',{id : idValue}]);
-  } 
 
-  async presentToast() {
-    const toast = await this.toastCtrl.create({
-      message: 'Atualizado com sucesso',
+  loadPerfil(){
+    this.db.collection("perfil").doc(this.idUser).get().subscribe(response =>{
+      if(response.exists==false){
+        this.nPerfil();
+      }else{
+        this.perfil.setPerfil(response.data());
+      }
+    })
+  }
+
+  nPerfil(){
+    let json = {
+      nome: "",
+      sobrenome: "",
+      telefone: "",
+      email: ""
+    }
+    this.db.collection('perfil').doc(this.idUser).set(json).then(() =>{})
+  }
+
+
+  voltar(){
+    this.router.navigate(['home']);
+        };
+
+  enviaArquivo(event){
+    this.imagem = event.srcElement.files[0];
+    this.uploadStorage();
+  }
+
+  async uploadStorage(){
+
+    let loading = await this.loadingController.create({
+      message: 'Carregando!',
       duration: 2000
     });
-    toast.present();
+
+    await loading.present();
+
+    let urlImage = this.firestorage.storage.ref().child(`perfil/${this.idUser}.jpg`);
+    urlImage.put(this.imagem).then(resp =>{
+      this.downloadImage();
+    });
   }
 
+downloadImage(){
+  let ref = this.firestorage.storage.ref().child(`perfil/${this.idUser}.jpg`);
+  ref.getDownloadURL().then(url =>{
+    this.imagem = url;
+  });
 }
 
+
+
+
+
+
+
+goPage(x: string){
+  this.router.navigate([x]);
+}
+}
