@@ -8,33 +8,39 @@
 </ion-header>
 
 <ion-content padding>
-      <img src="/assets/icon/colocarlogo.png" alt="" />
+      <img src="https://i.imgur.com/xjWsSja.png" alt="" />
   <form [formGroup]="formGroup">
       <ion-list>
           <ion-item>
+                <ion-icon name="person" slot="start"></ion-icon>
               <ion-label position="floating">Nome</ion-label>
               <ion-input formControlName="nome" type="text" placeholder="Digite seu nome aqui..."></ion-input>
           </ion-item>
           <ion-item>
+                <ion-icon name="book" slot="start"></ion-icon>
               <ion-label position="floating">Assunto</ion-label>
               <ion-input formControlName="assunto" type="text" placeholder="Digite o assunto aqui..."></ion-input>
           </ion-item>
           <ion-item>
+                <ion-icon name="mail" slot="start"></ion-icon>
               <ion-label position="floating">E-mail</ion-label>
               <ion-input formControlName="email" type="email" placeholder="Digite seu email aqui..."></ion-input>
           </ion-item>
           <ion-item>
+                <ion-icon name="call" slot="start"></ion-icon>
               <ion-label position="floating">Telefone</ion-label>
               <ion-input formControlName="telefone" type="text" placeholder="Digite seu telefone aqui..."></ion-input>
           </ion-item>
           <ion-item>
+                <ion-icon name="planet" slot="start"></ion-icon>
               <ion-label position="floating">Cidade</ion-label>
               <ion-input formControlName="cidade" type="text" formControlName="cidade"
                   placeholder="Digite sua cidade aqui..."></ion-input>
           </ion-item>
           <ion-item>
+                <ion-icon name="mail-open" slot="start"></ion-icon>
               <ion-label position="floating">Mensagem</ion-label>
-              <ion-textarea formControlName="mensagem" rows="6" cols="20" type="text"
+              <ion-textarea formControlName="mensagem" rows="3" cols="20" type="text"
                   placeholder="Digite a sua mensagem aqui..."></ion-textarea>
           </ion-item>
       </ion-list>

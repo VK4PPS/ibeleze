@@ -21,34 +21,9 @@ export class HomePage implements OnInit {
     this.inicializar();
   }
 
-  /*ngOnInit() {
-    this.firestore.collection(`goals`).valueChanges().subscribe(goalList => {
-      this.goalList = goalList;
-      this.loadedGoalList = goalList;
-    });
-  }
-
-  initializeItems(): void {
-    this.goalList = this.loadedGoalList;
-  }
-
-  filterList(evt) {
-    this.initializeItems();
-    const searchTerm = evt.srcElement.value;
-
-    if (!searchTerm) {
-      return;
-    }
-
-    this.goalList = this.goalList.filter(currentGoal => {
-      if (currentGoal.goalName && searchTerm) {
-        if (currentGoal.goalName.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
-          return true;
-        }
-        return false;
-      
-    });
-  }*/
+  ngOnInit() {
+   
+    };
 
    inicializar(){
      this.lista = [
