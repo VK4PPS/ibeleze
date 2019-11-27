@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="warning">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Contato</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+      <img src="/assets/icon/logo.png" alt="" />
+  <form [formGroup]="formGroup">
+      <ion-list>
+          <ion-item>
+              <ion-label position="floating">Nome</ion-label>
+              <ion-input formControlName="nome" type="text" placeholder="Digite seu nome aqui..."></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating">Assunto</ion-label>
+              <ion-input formControlName="assunto" type="text" placeholder="Digite o assunto aqui..."></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating">E-mail</ion-label>
+              <ion-input formControlName="email" type="email" placeholder="Digite seu email aqui..."></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating">Telefone</ion-label>
+              <ion-input formControlName="telefone" type="text" placeholder="Digite seu telefone aqui..."></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating">Cidade</ion-label>
+              <ion-input formControlName="cidade" type="text" formControlName="cidade"
+                  placeholder="Digite sua cidade aqui..."></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating">Mensagem</ion-label>
+              <ion-textarea formControlName="mensagem" rows="6" cols="20" type="text"
+                  placeholder="Digite a sua mensagem aqui..."></ion-textarea>
+          </ion-item>
+      </ion-list>
+      <ion-button expand="block" color="warning" size="default" style="color: black;" [disabled]="!formGroup.valid" (click)="enviar()">Enviar
+      </ion-button>
+  </form>
+</ion-content>

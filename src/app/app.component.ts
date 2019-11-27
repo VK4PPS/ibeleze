@@ -67,6 +67,11 @@ export class AppComponent {
       url: '/location',
       icon: 'code-working'
     },
+    {
+      title: 'Contato',
+      url: '/contato',
+      icon: 'person'
+    },
   
   ];
 

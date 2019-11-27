@@ -1,9 +1,9 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyB43MYGDcjWeblZJm4YHD_9RVfXL5d0ngY",
-  authDomain: "angular-86ddb.firebaseapp.com",
-  databaseURL: "https://angular-86ddb.firebaseio.com",
-  projectId: "angular-86ddb",
-  storageBucket: "angular-86ddb.appspot.com",
-  messagingSenderId: "442824312603",
-  appId: "1:442824312603:web:fb2108156c02ed08a4f5be"
-};
+  apiKey: "AIzaSyAu4kZ_HahGF7IVCbUo78CXdvuHl9xjAO8",
+    authDomain: "angular-1-5c763.firebaseapp.com",
+    databaseURL: "https://angular-1-5c763.firebaseio.com",
+    projectId: "angular-1-5c763",
+    storageBucket: "angular-1-5c763.appspot.com",
+    messagingSenderId: "957656748559",
+    appId: "1:957656748559:web:0bae0461d2a7d68465c97a"
+  };
