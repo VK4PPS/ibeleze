@@ -9,19 +9,19 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class HomePage implements OnInit {
 
-  public goalList: any[];
-  public loadedGoalList: any[];
+  //public goalList: any[];
+  //public loadedGoalList: any[];
 
-// lista: string[];
+ lista: string[];
 
   constructor(
-    private firestore: AngularFirestore,
-    // private router : Router
+    //private firestore: AngularFirestore,
+    private router : Router
   ) {
-    // this.inicializar();
+    this.inicializar();
   }
 
-  ngOnInit() {
+  /*ngOnInit() {
     this.firestore.collection(`goals`).valueChanges().subscribe(goalList => {
       this.goalList = goalList;
       this.loadedGoalList = goalList;
@@ -46,11 +46,11 @@ export class HomePage implements OnInit {
           return true;
         }
         return false;
-      }
+      
     });
-  }
+  }*/
 
-  /* inicializar(){
+   inicializar(){
      this.lista = [
        'Tratamento Corporal',
        'Tratamento Facial',
@@ -77,5 +77,5 @@ export class HomePage implements OnInit {
 
    goPage(x: string){
     this.router.navigate([x]);
-  }*/
+  }
 }
