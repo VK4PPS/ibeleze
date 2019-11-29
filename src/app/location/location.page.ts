@@ -87,7 +87,7 @@ export class LocationPage implements OnInit {
 
 
     
-      resp.target.loadImage('../../assets/gps.png', 
+      resp.target.loadImage('../../assets/gpsPink.png', 
       function(error, image) {
 
         resp.target.addImage('cat', image);
@@ -104,12 +104,20 @@ export class LocationPage implements OnInit {
           },
           layout: {
             "icon-image": "cat",
-            "icon-size": 0.2
+            "icon-size": 0.05
           }
         })
   }
   
   )
+  });
+
+  this.map.on('click', 'locations', function (e) {
+    console.log("popup aparece")
+    var country = e.features[0].properties.country;
+     
+    new mapboxgl.Popup()
+  console.log(country)
   });
 
   //Botão para localizar usuario
