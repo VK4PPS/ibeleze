@@ -26,9 +26,12 @@ const routes: Routes = [
   { path: 'mapa', loadChildren: './mapa/mapa.module#MapaPageModule' },
   { path: 'location', loadChildren: './location/location.module#LocationPageModule' },
   { path: 'pagamento-pay-pal', loadChildren: './pagamento-pay-pal/pagamento-pay-pal.module#PagamentoPayPalPageModule' },
-  { path: 'editarperfil', loadChildren: './editarperfil/editarperfil.module#EditarperfilPageModule' },  { path: 'contato', loadChildren: './contato/contato.module#ContatoPageModule' },
+  { path: 'editarperfil', loadChildren: './editarperfil/editarperfil.module#EditarperfilPageModule' },
+  { path: 'contato', loadChildren: './contato/contato.module#ContatoPageModule' },
   { path: 'privacidade', loadChildren: './privacidade/privacidade.module#PrivacidadePageModule' },
-  { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },
+  { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
+
+ 
 
 ];
 

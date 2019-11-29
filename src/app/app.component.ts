@@ -55,7 +55,12 @@ export class AppComponent {
     {
       title: 'Pagamento',
       url: '/pagamento-pay-pal',
-      icon: 'person'
+      icon: 'cart'
+    },
+    {
+      title: 'Carrinho',
+      url: '/cart',
+      icon: 'cart'
     },
     {
       title: 'Mapa',
