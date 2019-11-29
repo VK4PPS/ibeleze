@@ -1,12 +1,25 @@
 
+      
   <ion-content>
-        <div class="user-photo" padding-top>
-                <ion-avatar>
-                  <img src="{{imagem}}}">
-                </ion-avatar>
-              </div>
-  
-    <ion-item (click)="goPage(x = 'pagamento-pay-pal')">
+    <ion-card>
+      <ion-row>
+          <ion-col>
+              <div class="user-photo">
+                  <ion-avatar>
+                    <img src="https://definicao.net/wp-content/uploads/2018/09/significado-da-flor-de-lotus-810x507.jpg">
+                  </ion-avatar>
+                </div>
+          </ion-col>
+              <ion-col>
+                <div class="preset">
+                  <div class="h2"><ion-title>Nome</ion-title></div>
+      <ion-title><div class="h3">Editar perfil</div></ion-title>
+                </div>
+            </ion-col>
+            </ion-row>
+          </ion-card>
+          
+        <ion-item (click)="goPage(x = 'pagamento-pay-pal')">
         <ion-label floating>Pagamento</ion-label>
         <ion-icon name="card" slot="start" ></ion-icon>
     </ion-item>
@@ -34,9 +47,11 @@
     <ion-item (click)="goPage(x = '')">
         <ion-label floating>Notificações</ion-label>
         <ion-icon name="notifications-off" slot="start"></ion-icon>
-    </ion-item>
-
+    </ion-item> 
 </ion-content>
+
+
+
 
 <ion-tabs>
         <ion-tab-bar slot="bottom">

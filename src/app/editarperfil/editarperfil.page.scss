@@ -6,16 +6,53 @@
   --background: linear-gradient(349deg, rgba(131,102,177,1) 0%, rgba(251,169,199,1) 100%);
     }
     .user-photo ion-avatar {
-        margin: 0 auto;
-        width: 220px;
-        height: 220px;
+      
+      margin: 0 auto;
+        width: 80px;
+        height: 80px;
         color: black;
-        margin-bottom: 30px;
-      }}
+        filter: drop-shadow(0 0 0.10rem black);
+              }}
 
-    
-    ion-item{
-        --background: rgb(131,102,177, 0.5);
-        color: white;
-        font-weight: bold;
+    .h2{
+      font-weight: 400;
+      font-weight: bold;
+      color:white;
+      filter: drop-shadow(0 0 0.10rem black);
+      
     }
+    .preset{
+      margin: 0 auto;
+      padding-top: 18px;
+    }
+
+.h3{
+   font-size: 3vw;
+  padding-bottom: 4px;
+  opacity: 0.8;
+  color:white;
+}
+
+    ion-item{
+        --background: rgb(131,102,177, 0.5);        
+      filter: drop-shadow(0 0 0.10rem black);
+        color: white;
+    }
+
+    ion-card{
+      padding-left: 55;
+      margin: 10px;
+      --background: rgb(131,102,177, 0.5);        
+      filter: drop-shadow(0 0 0.10rem black);
+    }
+
+    .bg{
+      --background:white;
+    }
+ion-header{
+  --background: transparent;
+}
+
+.list{
+  --background:transparent;
+}
