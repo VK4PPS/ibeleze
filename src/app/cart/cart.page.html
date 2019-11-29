@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Carrinho</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of pagamento-pay-pal" lines="inset">
+      <ion-avatar slot="start">
+        <img src="{{item.imagem}}" href="/produtos" />
+      </ion-avatar>
+      {{ item.quantidade }} x {{ item.nome }} - {{ item.preco | currency:'BRL' }}
+      <ion-label slot="end" text-right>{{ (item.preco * item.quantidade) | currency:'BRL' }}</ion-label>
+    </ion-item>
+    <ion-item>
+      Total: <span slot="end">{{ total | currency:'BRL' }}</span>
+    </ion-item>
+  </ion-list>
+</ion-content>

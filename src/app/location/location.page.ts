@@ -6,6 +6,7 @@ import * as mapboxgl from "mapbox-gl"
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ULocation } from 'src/model/uLocation';
+import { NOMEM } from 'dns';
 
 @Component({
   selector: 'app-location',
@@ -16,7 +17,10 @@ export class LocationPage implements OnInit {
     map: mapboxgl.Map;
     longitude : number;
     latitude : number;
-
+    nome: string;
+    servicos: string;
+    dadosMapa: any;
+    
   style = 'mapbox://styles/mapbox/streets-v11';
   uLocation = [];
                 
@@ -25,17 +29,14 @@ export class LocationPage implements OnInit {
   }
 
   ngOnInit() {
-
-    //Espera as coordenadas do usaurio para iniciar o mapa
+    //Espera as coordenadas do usuario para iniciar o mapa
     this.geolocation.getCurrentPosition().then((resp) => {
 
-
-      console.log(resp.coords.longitude, resp.coords.latitude);
-
+      //recebe as coordenadas do usuario e coloca nas variaveis longitude e laitude
       this.longitude = resp.coords.longitude
       this.latitude = resp.coords.latitude
 
-
+     //Insere as informações do firebase no uLocation[]
       this.db.collection('uLocation').snapshotChanges().subscribe(response=>{ 
 
 
@@ -52,14 +53,8 @@ export class LocationPage implements OnInit {
                 "coordinates": [c.uLongitude, c.uLatitude]
             },
             "properties": {
-                "phoneFormatted": "(202) 234-7336",
-            "phone": "2022347336",
-            "address": "1471 P St NW",
-            "city": "Washington DC",
-            "country": "United States",
-            "crossStreet": "at 15th St NW",
-            "postalCode": "20005",
-            "state": "D.C."
+                "nome": c.nome,
+                "servicos": c.servicos
             }
         });
 
@@ -69,13 +64,14 @@ export class LocationPage implements OnInit {
   
       });
 
+      //Insere as informações do uLocation[] nas features do mapa
     var stores = {
       "type": "FeatureCollection",
       "features": this.uLocation
     };  
     console.log(stores)
     
-
+   //cria o mapa e coloca centraliza nas coordendas do usuario
     this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
@@ -86,11 +82,11 @@ export class LocationPage implements OnInit {
   }).on('load',function(resp){
 
 
-    
-      resp.target.loadImage('../../assets/gps.png', 
+    //Define imagem que sera usada como marcador
+      resp.target.loadImage('../../assets/gpsPink.png', 
       function(error, image) {
 
-        resp.target.addImage('cat', image);
+        resp.target.addImage('marcador', image);
 
         //@ts-ignore
         resp.target.addLayer({
@@ -103,8 +99,8 @@ export class LocationPage implements OnInit {
             data: stores
           },
           layout: {
-            "icon-image": "cat",
-            "icon-size": 0.2
+            "icon-image": "marcador",
+            "icon-size": 0.05
           }
         })
   }
@@ -112,7 +108,17 @@ export class LocationPage implements OnInit {
   )
   });
 
-  //Botão para localizar usuario
+  //ao clickar no marcador pega os dados do mapa 
+  this.map.on('click', 'locations', function (dadosMapa) {
+    this.nome = dadosMapa.features[0].properties.nome;
+    this.servicos = dadosMapa.features[0].properties.servicos;  
+    console.log(this.nome, this.servicos);
+    document.getElementById("demo").innerHTML = this.nome;
+  });
+
+  
+
+  //Botão para localizar usuario precisamente
   this.map.addControl(new mapboxgl.GeolocateControl({
     positionOptions: {
     enableHighAccuracy: true

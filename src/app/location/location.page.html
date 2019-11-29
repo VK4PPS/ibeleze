@@ -9,6 +9,23 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-
   <div class="map" id="map" class="match-parent"></div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title ng-model="nome" id="demo">{{nome}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{servicos}}
+    </ion-card-content>
+
+    <ion-item>
+      <ion-icon name="clipboard" slot="end"></ion-icon>
+      <ion-label>Agendar</ion-label>
+    </ion-item>
+  
+  </ion-card>
+  
+    
 </ion-content>
