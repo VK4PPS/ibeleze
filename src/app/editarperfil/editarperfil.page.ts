@@ -17,6 +17,7 @@ export class EditarperfilPage implements OnInit {
   formGroup : FormGroup;
   idUser : string;
   imagem : any;
+  perfil: any;
 
   constructor(private formBuild : FormBuilder,
     private auth : AngularFireAuth,
