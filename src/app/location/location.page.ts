@@ -29,7 +29,6 @@ export class LocationPage implements OnInit {
   }
 
   ngOnInit() {
-    this.nome ="teste";
     //Espera as coordenadas do usuario para iniciar o mapa
     this.geolocation.getCurrentPosition().then((resp) => {
 
@@ -114,7 +113,7 @@ export class LocationPage implements OnInit {
     this.nome = dadosMapa.features[0].properties.nome;
     this.servicos = dadosMapa.features[0].properties.servicos;  
     console.log(this.nome, this.servicos);
-
+    document.getElementById("demo").innerHTML = this.nome;
   });
 
   
