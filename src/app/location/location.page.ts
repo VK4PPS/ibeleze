@@ -52,14 +52,8 @@ export class LocationPage implements OnInit {
                 "coordinates": [c.uLongitude, c.uLatitude]
             },
             "properties": {
-                "phoneFormatted": "(202) 234-7336",
-            "phone": "2022347336",
-            "address": "1471 P St NW",
-            "city": "Washington DC",
-            "country": "United States",
-            "crossStreet": "at 15th St NW",
-            "postalCode": "20005",
-            "state": "D.C."
+                "nome": c.nome,
+                "servicos": c.servicos
             }
         });
 
@@ -113,11 +107,11 @@ export class LocationPage implements OnInit {
   });
 
   this.map.on('click', 'locations', function (e) {
-    console.log("popup aparece")
-    var country = e.features[0].properties.country;
-     
+    var nome = e.features[0].properties.nome;
+    var servicos = e.features[0].properties.servicos;  
+
     new mapboxgl.Popup()
-  console.log(country)
+  console.log(nome, servicos)
   });
 
   //Botão para localizar usuario
