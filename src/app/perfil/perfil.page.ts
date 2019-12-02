@@ -103,4 +103,7 @@ downloadImage(){
     this.imagem = url;
   });
 }
+goPage(x: string){
+  this.router.navigate([x]);
+}
 }

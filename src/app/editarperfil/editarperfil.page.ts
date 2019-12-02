@@ -16,15 +16,24 @@ export class EditarperfilPage implements OnInit {
 
   formGroup : FormGroup;
   idUser : string;
+  perfil : Perfil = new Perfil();
   imagem : any;
-  perfil: any;
 
   constructor(private formBuild : FormBuilder,
     private auth : AngularFireAuth,
     private db : AngularFirestore,
     public firestorage : AngularFireStorage,
     private loadingController : LoadingController,
-    private router : Router,) {
+    private router : Router,
+    public alertController: AlertController) {
+
+      this.formGroup = this.formBuild.group({
+        nome: ['',Validators.required],
+        sobrenome: ['',Validators.required],
+        telefone: ['',Validators.required],
+        email: ['',Validators.required]
+      });
+
       this.auth.user.subscribe(resp =>{
         this.idUser = resp.uid;
         this.loadPerfil();
@@ -55,6 +64,12 @@ export class EditarperfilPage implements OnInit {
     this.db.collection('perfil').doc(this.idUser).set(json).then(() =>{})
   }
 
+  atualizar(){
+    this.db.collection('perfil').doc(this.idUser).set(this.formGroup.value).then(() =>{console.log('Atualizado com sucesso')
+  }).catch(()=>{
+    console.log('Erro ao atualizar');
+  })
+  }
 
   voltar(){
     this.router.navigate(['home']);
@@ -86,14 +101,22 @@ downloadImage(){
     this.imagem = url;
   });
 }
-
-
-
-
-
-
-
 goPage(x: string){
   this.router.navigate([x]);
 }
+
+
+
+
+async presentAlert() {
+  const alert = await this.alertController.create({
+    header: '{{perfil.imagem}}',
+    subHeader: 'Subtitle',
+    message: 'This is an alert message.',
+    buttons: ['OK']
+  });
+
+  await alert.present();
+}
+
 }

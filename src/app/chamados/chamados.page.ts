@@ -54,6 +54,6 @@ export class ChamadosPage implements OnInit {
     // Redirecionando para ChamadosDetalhes
     // enviando o id do chamados (idValue)
     this.router.navigate(['chamados-detalhes',{id : idValue}]);
-  } 
+  } z
 
 }
