@@ -112,7 +112,8 @@ export class LocationPage implements OnInit {
     this.nome = dadosMapa.features[0].properties.nome;
     this.servicos = dadosMapa.features[0].properties.servicos;  
     console.log(this.nome, this.servicos);
-    document.getElementById("demo").innerHTML = this.nome;
+    document.getElementById("nome").innerHTML = this.nome;
+    document.getElementById("servicos").innerHTML = this.servicos;
   });
 
   

@@ -20,6 +20,16 @@
           </ion-input>
       </ion-item>
 
+      
+        <!--coordenadas para serem inseridas no firebase -->
+      <ion-item style="display: none;">
+      <ion-input type="text" value="" [(ngModel)]="longitude" >
+        </ion-input>
+
+        <ion-input type="text" value="" [(ngModel)]="latitude" >
+          </ion-input>
+      </ion-item>
+
   <ion-button color="tertiary" expand="full" (click)="login()">Entrar</ion-button>
   <ion-button color="tertiary" expand="full" (click)="goNovoUsuario()">Cadastrar</ion-button>
   <div class="passwordforget" (click)="goNovaSenha()"><p>Esqueci minha senha</p></div>
