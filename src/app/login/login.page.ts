@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { MenuController, ToastController } from '@ionic/angular';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder} from '@angular/forms';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AngularFirestore } from '@angular/fire/firestore';
 
