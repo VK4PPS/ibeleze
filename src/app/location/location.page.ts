@@ -6,7 +6,6 @@ import * as mapboxgl from "mapbox-gl"
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ULocation } from 'src/model/uLocation';
-import { NOMEM } from 'dns';
 
 @Component({
   selector: 'app-location',
@@ -71,7 +70,7 @@ export class LocationPage implements OnInit {
     };  
     console.log(stores)
     
-   //cria o mapa e coloca centraliza nas coordendas do usuario
+   //cria o mapa e centraliza nas coordendas do usuario
     this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
@@ -108,7 +107,7 @@ export class LocationPage implements OnInit {
   )
   });
 
-  //ao clickar no marcador pega os dados do mapa 
+  //ao clickar no marcador pega as informações do firebase inseridas no mapa
   this.map.on('click', 'locations', function (dadosMapa) {
     this.nome = dadosMapa.features[0].properties.nome;
     this.servicos = dadosMapa.features[0].properties.servicos;  
