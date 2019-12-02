@@ -24,7 +24,8 @@ export class EditarperfilPage implements OnInit {
     private db : AngularFirestore,
     public firestorage : AngularFireStorage,
     private loadingController : LoadingController,
-    private router : Router,) {
+    private router : Router,
+    public alertController: AlertController) {
 
       this.formGroup = this.formBuild.group({
         nome: ['',Validators.required],
@@ -103,4 +104,19 @@ downloadImage(){
 goPage(x: string){
   this.router.navigate([x]);
 }
+
+
+
+
+async presentAlert() {
+  const alert = await this.alertController.create({
+    header: '{{perfil.imagem}}',
+    subHeader: 'Subtitle',
+    message: 'This is an alert message.',
+    buttons: ['OK']
+  });
+
+  await alert.present();
+}
+
 }
