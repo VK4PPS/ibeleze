@@ -8,6 +8,7 @@ export class Perfil{
   carteira: any;
   cupons: any;
   notificacoes: any;
+  servico: any;
 
     setPerfil(obj : any, id : any){
         this.id = id;
@@ -17,6 +18,7 @@ export class Perfil{
         this.carteira = obj.carteira;
         this.cupons = obj.cupons;
         this.notificacoes = obj.notificacoes;
+        this.servico = obj.servico;
 
 
     }

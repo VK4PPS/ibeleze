@@ -3,11 +3,17 @@ export class Perfil{
     sobrenome: string;
     email: string;
     telefone: string;
+    servico: string;
+    uLongitude: number;
+    uLatitude: number;
 
     setPerfil(obj: any){
         this.nome = obj.nome;
         this.sobrenome = obj.sobrenome;
         this.email = obj.email;
         this.telefone = obj.telefone;
+        this.servico = obj.servico;
+        this.uLongitude = obj.uLongitude;
+        this.uLatitude = obj.uLatitude;
     }
 }

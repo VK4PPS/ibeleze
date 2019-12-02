@@ -5,7 +5,9 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import * as mapboxgl from "mapbox-gl"
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ULocation } from 'src/model/uLocation';
+import { Perfil } from './../model/perfil';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-location',
@@ -19,12 +21,24 @@ export class LocationPage implements OnInit {
     nome: string;
     servicos: string;
     dadosMapa: any;
+    idUser : string;
+    imagem : any;
     
   style = 'mapbox://styles/mapbox/streets-v11';
-  uLocation = [];
+  perfil = [];
+  url: string;
                 
-  constructor(private geolocation: Geolocation, private db: AngularFirestore,) {
+  constructor(private geolocation: Geolocation, private db: AngularFirestore, 
+    public firestorage : AngularFireStorage, 
+    private auth : AngularFireAuth,
+    ) {
     (mapboxgl as typeof mapboxgl).accessToken = environment.mapbox.accessToken;
+
+    this.auth.user.subscribe(resp =>{
+      this.idUser = localStorage.getItem("uid");
+      
+    });
+
   }
 
   ngOnInit() {
@@ -35,17 +49,19 @@ export class LocationPage implements OnInit {
       this.longitude = resp.coords.longitude
       this.latitude = resp.coords.latitude
 
-     //Insere as informações do firebase no uLocation[]
-      this.db.collection('uLocation').snapshotChanges().subscribe(response=>{ 
+     //Insere as informações do firebase no perfil[]
+      this.db.collection('perfil').snapshotChanges().subscribe(response=>{ 
 
 
         
         response.forEach(doc=>{ 
         
-          let c = new ULocation();
-          c.setLocation(doc.payload.doc.data(),doc.payload.doc.id);
+          let c = new Perfil();
+          //@ts-ignore
+          c.setPerfil(doc.payload.doc.data(),doc.payload.doc.id);
           
-          this.uLocation.push({
+          
+          this.perfil.push({
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -53,7 +69,11 @@ export class LocationPage implements OnInit {
             },
             "properties": {
                 "nome": c.nome,
-                "servicos": c.servicos
+                "servicos": c.servico,
+                "sobrenome": c.sobrenome,
+                "email": c.email,
+                "id": doc.payload.doc.id,
+    
             }
         });
 
@@ -63,13 +83,11 @@ export class LocationPage implements OnInit {
   
       });
 
-      //Insere as informações do uLocation[] nas features do mapa
+      //Insere as informações do perfil[] nas features do mapa
     var stores = {
       "type": "FeatureCollection",
-      "features": this.uLocation
+      "features": this.perfil
     };  
-    console.log(stores)
-    
    //cria o mapa e centraliza nas coordendas do usuario
     this.map = new mapboxgl.Map({
       container: 'map',
@@ -109,11 +127,24 @@ export class LocationPage implements OnInit {
 
   //ao clickar no marcador pega as informações do firebase inseridas no mapa
   this.map.on('click', 'locations', function (dadosMapa) {
+
     this.nome = dadosMapa.features[0].properties.nome;
-    this.servicos = dadosMapa.features[0].properties.servicos;  
-    console.log(this.nome, this.servicos);
-    document.getElementById("nome").innerHTML = this.nome;
-    document.getElementById("servicos").innerHTML = this.servicos;
+    this.servico = dadosMapa.features[0].properties.servicos;  
+    this.sobrenome = dadosMapa.features[0].properties.sobrenome;  
+    this.email = dadosMapa.features[0].properties.email;  
+
+    document.getElementById("nome").innerHTML = this.nome+" "+this.sobrenome;
+    document.getElementById("email").innerHTML = this.email;
+    document.getElementById("servicos").innerHTML = this.servico;
+    
+    
+
+    let ref = this.firestorage.storage.ref().child(`perfil/${dadosMapa.features[0].properties.id}.jpg`);
+    ref.getDownloadURL().then(url =>{
+    this.imagem = url;
+    
+    });
+    
   });
 
   
@@ -131,4 +162,7 @@ export class LocationPage implements OnInit {
   });
 
   }
+
+  
+  
 }

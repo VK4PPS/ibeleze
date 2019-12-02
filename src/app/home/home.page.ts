@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -17,12 +18,14 @@ export class HomePage implements OnInit {
 
   constructor(
     private db: AngularFirestore,
+    private menuCtrl : MenuController,
     private router : Router
   ) {
     this.inicializar();
   }
 
  ngOnInit() {
+  this.menuCtrl.swipeEnable(true);
     /*
     this.firestore.collection(`goals`).valueChanges().subscribe(goalList => {
       this.goalList = goalList;

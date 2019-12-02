@@ -21,13 +21,15 @@ export class LogoffPage implements OnInit {
 
   ngOnInit() {
 
+    console.log(localStorage.getItem("uid"))
+
 //Zera as coordendas do usuario ao deslogar
     this.formGroup = this.formB.group({
       uLongitude : 0,
       uLatitude : 0
     });
 
-       this.db.collection('uLocation').doc(localStorage.getItem("uid")).delete().then(() =>{ 
+       this.db.collection('perfil').doc(localStorage.getItem("uid")).update(this.formGroup.value).then(() =>{ 
       }).catch(()=>{ 
         console.log("Erro ao remover coordenadas") 
       });

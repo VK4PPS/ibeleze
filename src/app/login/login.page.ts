@@ -53,8 +53,8 @@ export class LoginPage implements OnInit {
         uLongitude : this.longitude,
         uLatitude : this.latitude
       });
-  
-         this.db.collection('uLocation').doc(localStorage.getItem("uid")).set(this.formGroup.value).then(() =>{ 
+      this.menuCtrl.swipeEnable(true);
+         this.db.collection('perfil').doc(localStorage.getItem("uid")).update(this.formGroup.value).then(() =>{ 
         }).catch(()=>{ 
           console.log("Erro ao cadastrar coordenadas") 
         });

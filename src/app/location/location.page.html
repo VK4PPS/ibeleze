@@ -19,9 +19,23 @@
   <ion-card>
     <ion-card-header>
       <ion-card-title id="nome"></ion-card-title>
+      <div class="user-photo" padding-top>
+          <ion-avatar>
+            <img src="{{imagem}}">
+          </ion-avatar>
+        </div>
     </ion-card-header>
   
-    <ion-card-content id="servicos">
+    <ion-card-content>
+      <div class="ion-padding">
+          <ion-label>Email:</ion-label>
+          <p id="email"></p>
+      </div>
+      
+      <div class="ion-padding">
+      <ion-label>Serviço(s):</ion-label>
+      <p id="servicos"></p>
+    </div>
     </ion-card-content>
 
     <!-- botão para pagina do usuario selecionado -->

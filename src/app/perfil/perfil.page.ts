@@ -30,11 +30,12 @@ export class PerfilPage implements OnInit {
         nome: ['',Validators.required],
         sobrenome: ['',Validators.required],
         telefone: ['',Validators.required],
-        email: ['',Validators.required]
+        email: ['',Validators.required],
+        servico: ['',Validators.required],
       });
 
       this.auth.user.subscribe(resp =>{
-        this.idUser = resp.uid;
+        this.idUser = localStorage.getItem("uid");
         this.loadPerfil();
         this.downloadImage();
       });
@@ -58,13 +59,15 @@ export class PerfilPage implements OnInit {
       nome: "",
       sobrenome: "",
       telefone: "",
-      email: ""
+      email: "",
+      servico: "",
     }
+  
     this.db.collection('perfil').doc(this.idUser).set(json).then(() =>{})
   }
 
   atualizar(){
-    this.db.collection('perfil').doc(this.idUser).set(this.formGroup.value).then(() =>{console.log('Atualizado com sucesso')
+    this.db.collection('perfil').doc(this.idUser).update(this.formGroup.value).then(() =>{console.log('Atualizado com sucesso')
   }).catch(()=>{
     console.log('Erro ao atualizar');
   })

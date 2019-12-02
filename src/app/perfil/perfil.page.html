@@ -51,6 +51,14 @@
         <ion-input formControlName="email" value="{{perfil.email}}" type="text">
           </ion-input>
       </ion-item>
+      <ion-item>
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-label>
+            <p>Serviço</p>
+          </ion-label>
+      <ion-input formControlName="servico" value="{{perfil.servico}}" type="text">
+        </ion-input>
+    </ion-item>
 
 </ion-list>
 <ion-button color="tertiary" expand="full" (click)="atualizar()">Atualizar dados</ion-button>
