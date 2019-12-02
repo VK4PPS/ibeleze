@@ -43,12 +43,12 @@ export class AppComponent {
       icon: 'code-working'
     },
     {
-      title: 'Seu Perfil',
+      title: 'Editar Perfil',
       url: '/perfil',
       icon: 'person'
     },
     {
-      title: 'Editar Perfil',
+      title: 'Perfil',
       url: '/editarperfil',
       icon: 'person'
     },

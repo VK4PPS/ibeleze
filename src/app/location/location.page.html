@@ -8,23 +8,28 @@
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content class="ion-padding">
+  <!-- Mapa -->
   <div class="map" id="map" class="match-parent"></div>
 
+
+  <!-- Recebe dados do mapa -->
   <ion-card>
     <ion-card-header>
-      <ion-card-title ng-model="nome" id="demo">{{nome}}</ion-card-title>
+      <ion-card-title id="nome"></ion-card-title>
     </ion-card-header>
   
-    <ion-card-content>
-      {{servicos}}
+    <ion-card-content id="servicos">
     </ion-card-content>
 
-    <ion-item>
-      <ion-icon name="clipboard" slot="end"></ion-icon>
-      <ion-label>Agendar</ion-label>
-    </ion-item>
-  
+    <!-- botão para pagina do usuario selecionado -->
+    <ion-button class="ion-margin">
+      <ion-icon name="clipboard"></ion-icon>
+      <ion-label>Vizualizar Perfil</ion-label>
+    </ion-button>
+
   </ion-card>
   
     
