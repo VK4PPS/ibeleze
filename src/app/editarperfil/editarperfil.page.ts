@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Perfil } from 'src/model/perfil';
+import { Perfil } from './../model/perfil';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastController, AlertController, LoadingController } from '@ionic/angular';
@@ -65,8 +65,9 @@ export class EditarperfilPage implements OnInit {
   }
 
   atualizar(){
-    this.db.collection('perfil').doc(this.idUser).set(this.formGroup.value).then(() =>{console.log('Atualizado com sucesso')
-  }).catch(()=>{
+    this.db.collection('perfil').doc(this.idUser).set(this.formGroup.value).then(() =>
+    {console.log('Atualizado com sucesso');
+    }).catch(()=>{
     console.log('Erro ao atualizar');
   })
   }

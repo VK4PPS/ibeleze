@@ -1,19 +1,26 @@
 
 <ion-content>
-
-    <ion-card (click)="goPage(x = 'editarperfil')">
+    <ion-card >
         <ion-row >
             <ion-col >
+
+                <div class="image-upload">
+                    <label for="file-input">
+
                 <div class="user-photo">
                     <ion-avatar>
                       <img src="{{imagem}}">
                     </ion-avatar>
                   </div>
+                  </label>
+                  <input id="file-input" type="file" (change)="enviaArquivo($event)" />
+      </div>
+                  <div class="photo"><ion-icon name="camera"></ion-icon></div>
             </ion-col>
                 <ion-col>
                   <div class="preset">
                     <div class="h2"><ion-title>{{perfil.nome}} {{perfil.sobrenome}}</ion-title></div>
-        <ion-title><div class="h3">Cancelar </div></ion-title>
+        <ion-title><div class="h3" (click)="goPage(x = 'editarperfil')">Cancelar </div></ion-title>
                   </div>
               </ion-col>
               </ion-row>

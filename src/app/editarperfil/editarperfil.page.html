@@ -1,19 +1,19 @@
 
       
   <ion-content>
-    <ion-card>
+    <ion-card >
       <ion-row >
           <ion-col >
-              <div class="user-photo" (click)="presentAlert()">
+              <div class="user-photo" >
                   <ion-avatar>
-                    <img src="https://definicao.net/wp-content/uploads/2018/09/significado-da-flor-de-lotus-810x507.jpg">
+                    <img src="{{imagem}}">
                   </ion-avatar>
                 </div>
           </ion-col>
               <ion-col>
                 <div class="preset">
                   <div class="h2"><ion-title>{{perfil.nome}}</ion-title></div>
-      <ion-title><div class="h3">Editar perfil</div></ion-title>
+      <ion-title><div class="h3" (click)="goPage(x = 'perfil')">Editar perfil</div></ion-title>
                 </div>
             </ion-col>
             </ion-row>

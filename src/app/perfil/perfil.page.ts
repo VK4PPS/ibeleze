@@ -67,7 +67,9 @@ export class PerfilPage implements OnInit {
   }
 
   atualizar(){
-    this.db.collection('perfil').doc(this.idUser).update(this.formGroup.value).then(() =>{console.log('Atualizado com sucesso')
+    this.db.collection('perfil').doc(this.idUser).update(this.formGroup.value).then(() =>{
+      this.loadPerfil();
+      console.log('Atualizado com sucesso')
   }).catch(()=>{
     console.log('Erro ao atualizar');
   })
