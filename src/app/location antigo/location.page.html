@@ -1,0 +1,54 @@
+  
+<ion-header>
+  <ion-toolbar color="tertiary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Localização</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding">
+  <!-- Mapa -->
+  <div (click)="downloadImage()" class="map" id="map" class="match-parent"></div>
+
+
+  <!-- Recebe dados do mapa -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title id="nome"></ion-card-title>
+      <div class="user-photo" padding-top>
+          <ion-avatar>
+            <img src="{{imagem}}">
+          </ion-avatar>
+        </div>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <div class="ion-padding">
+          <ion-label>Email:</ion-label>
+          <p id="email"></p>
+      </div>
+      
+      <div class="ion-padding">
+      <ion-label>Serviço(s):</ion-label>
+      <p id="servicos"></p>
+      </div>
+
+      <ion-input  id="id" class="ion-padding" style="display: none;">
+    </ion-input>
+
+    </ion-card-content>
+
+    <!-- botão para pagina do usuario selecionado -->
+    <ion-button class="ion-margin">
+      <ion-icon name="clipboard"></ion-icon>
+      <ion-label>Vizualizar Perfil</ion-label>
+    </ion-button>
+
+  </ion-card>
+  
+    
+</ion-content>
