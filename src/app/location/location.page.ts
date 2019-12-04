@@ -22,8 +22,10 @@ export class LocationPage implements OnInit {
     servicos: string;
     dadosMapa: any;
     idUser : string;
+    id : string;
     imagem : any;
     
+
   style = 'mapbox://styles/mapbox/streets-v11';
   perfil = [];
   url: string;
@@ -132,19 +134,13 @@ export class LocationPage implements OnInit {
     this.servico = dadosMapa.features[0].properties.servicos;  
     this.sobrenome = dadosMapa.features[0].properties.sobrenome;  
     this.email = dadosMapa.features[0].properties.email;  
+    this.id = dadosMapa.features[0].properties.id
 
     document.getElementById("nome").innerHTML = this.nome+" "+this.sobrenome;
     document.getElementById("email").innerHTML = this.email;
     document.getElementById("servicos").innerHTML = this.servico;
-    
-    
+    document.getElementById("id").innerHTML = this.id;  
 
-    let ref = this.firestorage.storage.ref().child(`perfil/${dadosMapa.features[0].properties.id}.jpg`);
-    ref.getDownloadURL().then(url =>{
-    this.imagem = url;
-    
-    });
-    
   });
 
   
@@ -161,6 +157,15 @@ export class LocationPage implements OnInit {
     console.log('Error getting location', error);
   });
 
+  }
+
+  
+  downloadImage(){
+    this.id = document.getElementById("id").innerHTML;
+    let ref = this.firestorage.storage.ref().child(`perfil/${this.id}.jpg`);
+    ref.getDownloadURL().then(url =>{
+      this.imagem = url;
+    });
   }
 
   
