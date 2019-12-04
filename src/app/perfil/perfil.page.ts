@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { LoadingController, ToastController, MenuController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil',
@@ -24,11 +24,7 @@ export class PerfilPage implements OnInit {
     private db : AngularFirestore,
     public firestorage : AngularFireStorage,
     private loadingController : LoadingController,
-    private router : Router,
-    private menuCtrl : MenuController,
-    private toastCtrl : ToastController) {
-
-      this.menuCtrl.swipeEnable(false);
+    private router : Router,) {
 
       this.formGroup = this.formBuild.group({
         nome: ['',Validators.required],
@@ -46,14 +42,6 @@ export class PerfilPage implements OnInit {
      }
 
   ngOnInit() {
-  }
-
-  async Toastera() {
-    const toast = await this.toastCtrl.create({
-      message: 'Atualizado com sucesso',
-      duration: 2000
-    });
-    toast.present();
   }
 
   loadPerfil(){
@@ -81,8 +69,7 @@ export class PerfilPage implements OnInit {
   atualizar(){
     this.db.collection('perfil').doc(this.idUser).update(this.formGroup.value).then(() =>{
       this.loadPerfil();
-      this.Toastera();
-      console.log('Atualizado com sucesso');
+      console.log('Atualizado com sucesso')
   }).catch(()=>{
     console.log('Erro ao atualizar');
   })
