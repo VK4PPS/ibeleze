@@ -1,34 +1,34 @@
 
 <ion-content>
-    <ion-card >
+    
+      <div class="card">
+        <ion-item>
         <ion-row >
             <ion-col >
-
                 <div class="image-upload">
                     <label for="file-input">
-
                 <div class="user-photo">
                     <ion-avatar>
                       <img src="{{imagem}}">
                     </ion-avatar>
                   </div>
-                  </label>
-                  <input id="file-input" type="file" (change)="enviaArquivo($event)" />
-      </div>
                   <div class="photo"><ion-icon name="camera"></ion-icon></div>
+                  </label>
+                    <input id="file-input" type="file" (change)="enviaArquivo($event)" /></div>
             </ion-col>
                 <ion-col>
                   <div class="preset">
                     <div class="h2"><ion-title>{{perfil.nome}} {{perfil.sobrenome}}</ion-title></div>
         <ion-title><div class="h3" (click)="goPage(x = 'editarperfil')">Cancelar </div></ion-title>
                   </div>
+                </ion-col>
+                <ion-col>
+                  <div class="menu">
+                      <ion-icon  name="save"  slot="end" (click)="atualizar()" ></ion-icon></div>
               </ion-col>
               </ion-row>
-            </ion-card>
-            <ion-item>
-                <input type="file" (change)="enviaArquivo($event)" />
-              </ion-item>
-
+            </ion-item>
+          </div>
 <form [formGroup]="formGroup">
 
       <ion-item>
@@ -63,7 +63,5 @@
         <ion-input formControlName="email" value="{{perfil.email}}" type="text">
           </ion-input>
       </ion-item>
-<ion-button color="tertiary" expand="full" (click)="atualizar()">Atualizar dados</ion-button>
-
 </form>
 </ion-content>

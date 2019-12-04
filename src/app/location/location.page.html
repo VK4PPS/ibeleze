@@ -12,7 +12,7 @@
 
 <ion-content class="ion-padding">
   <!-- Mapa -->
-  <div class="map" id="map" class="match-parent"></div>
+  <div (click)="downloadImage()" class="map" id="map" class="match-parent"></div>
 
 
   <!-- Recebe dados do mapa -->
@@ -35,7 +35,11 @@
       <div class="ion-padding">
       <ion-label>Serviço(s):</ion-label>
       <p id="servicos"></p>
-    </div>
+      </div>
+
+      <ion-input  id="id" class="ion-padding" style="display: none;">
+    </ion-input>
+
     </ion-card-content>
 
     <!-- botão para pagina do usuario selecionado -->

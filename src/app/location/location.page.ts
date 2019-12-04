@@ -22,8 +22,10 @@ export class LocationPage implements OnInit {
     servicos: string;
     dadosMapa: any;
     idUser : string;
+    id : string;
     imagem : any;
     
+
   style = 'mapbox://styles/mapbox/streets-v11';
   perfil = [];
   url: string;
@@ -176,6 +178,15 @@ export class LocationPage implements OnInit {
         },
         trackUserLocation: true
         }));
+  }
+
+  
+  downloadImage(){
+    this.id = document.getElementById("id").innerHTML;
+    let ref = this.firestorage.storage.ref().child(`perfil/${this.id}.jpg`);
+    ref.getDownloadURL().then(url =>{
+      this.imagem = url;
+    });
   }
 
   
