@@ -1,12 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Nova Conta</ion-title>
-  </ion-toolbar>
-</ion-header>
+
+    
+  
 
 <ion-content padding>
-
-  <ion-list>
+  <h3>Nova Conta</h3>
     <ion-item>
       <ion-label fixed>E-mail</ion-label>
       <ion-input type="text" value="" [(ngModel)]="email"></ion-input>
@@ -15,8 +12,9 @@
         <ion-label fixed>Senha</ion-label>
         <ion-input type="password" [(ngModel)]="senha"></ion-input>
       </ion-item>
-  </ion-list>
+      <br>
   <ion-button color="tertiary" expand="full" (click)="cadastrar()">Cadastrar</ion-button>
-  <ion-button color="tertiary" expand="full" (click)="logar()">Fazer Login</ion-button>
+  <h4>OU</h4>
+  <ion-button color="tertiary" expand="full" (click)="logar()">Logar</ion-button>
 
 </ion-content>

@@ -37,7 +37,7 @@ export class PerfilPage implements OnInit {
         telefone: ['',Validators.required],
         email: ['',Validators.required],
         servico: ['',Validators.required],
-        profissional: this.profissional
+        profissional : ''
       });
 
       this.auth.user.subscribe(resp =>{
@@ -76,12 +76,15 @@ export class PerfilPage implements OnInit {
       email: "",
       servico: "",
     }
+
+    
   
     this.db.collection('perfil').doc(this.idUser).set(json).then(() =>{})
   }
 
   atualizar(){
-    console.log(this.profissional)
+    this.formGroup.value.profissional = this.profissional
+    console.log(this.formGroup)
     this.db.collection('perfil').doc(this.idUser).update(this.formGroup.value).then(() =>{
       this.loadPerfil();
       this.Toastera();

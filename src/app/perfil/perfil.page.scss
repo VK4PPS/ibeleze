@@ -40,6 +40,12 @@ color:white;
       color: white;
   }
 
+  ion-textarea{
+    --background: rgb(131,102,177, 0.5);
+    filter: drop-shadow(0 0 0.10rem black);
+    color: white;
+  }
+
 
   .card{
     --background: rgb(131,102,177, 0.5); 
@@ -76,3 +82,4 @@ color:white;
 .image-upload>input {
   display: none;
 }
+

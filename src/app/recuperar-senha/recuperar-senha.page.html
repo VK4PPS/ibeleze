@@ -1,12 +1,7 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Enviar Senha Ao Email</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
 
-<ion-list>
-    <ion-item>
+<ion-content padding>
+<h3>Recuperar Senha</h3>
+   <ion-item>
         <ion-icon name="person" slot="start"></ion-icon>
         <ion-label>
             <p>Email</p>
@@ -14,8 +9,8 @@
       <ion-input type="text" value="" [(ngModel)]="email" >
         </ion-input>
     </ion-item>
-</ion-list>
-
-<ion-button color="tertiary" expand="full" (click)="recuperarSenha()">Recuperar Senha</ion-button>
-<ion-button color="tertiary" expand="full" (click)="logar()">Fazer Login</ion-button>
+<br>
+<ion-button color="tertiary" expand="full" (click)="recuperarSenha()">Confirmar</ion-button>
+<h4>OU</h4>
+<ion-button color="tertiary" expand="full" (click)="logar()">Voltar ao Login</ion-button>
 </ion-content>
