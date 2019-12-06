@@ -159,7 +159,7 @@ export class LocationPage implements OnInit {
         document.getElementById("email").innerHTML = this.email;
         document.getElementById("servicos").innerHTML = this.servico;
         
-        console.log(dadosMapa.features[0].properties.image);
+        //@ts-ignore
         document.getElementById("myImg").src = dadosMapa.features[0].properties.image;
         
     
