@@ -36,10 +36,9 @@ export class HomePage implements OnInit {
   busca(){
     console.log(this.texto);
     
-    this.db.collection('funcionarios').ref.orderBy('nome').startAt(this.texto).endAt(this.texto+'\uf8ff').get().then(response=>{ 
-      
-        response.forEach(doc=>{ 
-        console.log(doc.data());
+    this.db.collection('perfil').ref.orderBy('email').startAt(this.texto).endAt(this.texto+'\uf8ff').get().then(response=>{ 
+              response.forEach(doc=>{ 
+              console.log(doc.data());
       });
 
   });
