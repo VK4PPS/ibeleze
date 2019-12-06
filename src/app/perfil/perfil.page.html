@@ -65,10 +65,22 @@
 
   <div padding ></div>
 
-  <ion-item-divider color="danger" (click)="atualizar(profissional=1)">
-    <ion-label>
-      Area do Profissional
+</form>
+
+<ion-item-divider color="danger" (click)="atualizar(profissional=true)">
+  <ion-label>
+    Area do Profissional
+  </ion-label>
+</ion-item-divider>
+
+<form *ngIf="profissional">
+  <ion-icon name="list-box" slot="start"></ion-icon>
+  <ion-label> 
+      <p>Descrição</p>
     </ion-label>
-  </ion-item-divider>
+<ion-textarea>
+
+</ion-textarea>
+
 </form>
 </ion-content>
