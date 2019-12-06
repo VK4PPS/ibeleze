@@ -7,6 +7,8 @@ export class Perfil{
     uLongitude: number;
     uLatitude: number;
     profissional: boolean;
+    descricao: string;
+
 
     setPerfil(obj: any){
         this.nome = obj.nome;
