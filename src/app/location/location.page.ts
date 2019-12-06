@@ -154,6 +154,8 @@ export class LocationPage implements OnInit {
         this.servico = dadosMapa.features[0].properties.servicos;  
         this.sobrenome = dadosMapa.features[0].properties.sobrenome;  
         this.email = dadosMapa.features[0].properties.email;  
+
+        console.log(dadosMapa.features[0].properties)
     
         document.getElementById("nome").innerHTML = this.nome+" "+this.sobrenome;
         document.getElementById("email").innerHTML = this.email;
