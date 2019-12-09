@@ -53,6 +53,11 @@ export class AppComponent {
       icon: 'person'
     },
     {
+      title: 'Perfil de Profissional',
+      url: '/perfil-pro',
+      icon: 'person'
+    },
+    {
       title: 'Pagamento',
       url: '/pagamento-pay-pal',
       icon: 'cart'

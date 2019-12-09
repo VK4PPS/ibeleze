@@ -1,4 +1,3 @@
-import { Servico } from './../model/servico';
 import { Router } from '@angular/router';
 import { Perfil } from './../model/perfil';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -7,7 +6,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { LoadingController, ToastController, MenuController } from '@ionic/angular';
-import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-perfil',
@@ -17,12 +15,9 @@ import { throwError } from 'rxjs';
 export class PerfilPage implements OnInit {
 
   formGroup : FormGroup;
-  formGroup2 : FormGroup;
   idUser : string;
   perfil : Perfil = new Perfil();
-  servico : Servico = new Servico;
   imagem : any;
-  profissional : boolean;
 
   constructor(private formBuild : FormBuilder,
     private auth : AngularFireAuth,
@@ -30,31 +25,15 @@ export class PerfilPage implements OnInit {
     public firestorage : AngularFireStorage,
     private loadingController : LoadingController,
     private router : Router,
-    private menuCtrl : MenuController,
     private toastCtrl : ToastController) {
 
-      this.profissional = false;
-
-      this.menuCtrl.swipeEnable(true);
 
       this.formGroup = this.formBuild.group({
         nome: ['',Validators.required],
         sobrenome: ['',Validators.required],
         telefone: ['',Validators.required],
         email: ['',Validators.required],
-        servico: ['',Validators.required],
-        profissional : '',
-        descricao : ['', Validators.required]
       });
-
-
-      this.formGroup2 = this.formBuild.group({
-        nome: ['',Validators.required],
-//        preco: ['',Validators.required],
-//        duracao: ['',Validators.required],
-//        descricao : ['', Validators.required] 
-      });
-      
 
       this.auth.user.subscribe(resp =>{
         this.idUser = localStorage.getItem("uid");
@@ -90,8 +69,6 @@ export class PerfilPage implements OnInit {
       sobrenome: "",
       telefone: "",
       email: "",
-      servico: "",
-      descricao: "",
     }
 
     
@@ -100,8 +77,6 @@ export class PerfilPage implements OnInit {
   }
 
   atualizar(){
-    this.formGroup.value.profissional = this.profissional
-    console.log(this.formGroup)
     this.db.collection('perfil').doc(this.idUser).update(this.formGroup.value).then(() =>{
       this.loadPerfil();
       this.Toastera();
@@ -109,24 +84,6 @@ export class PerfilPage implements OnInit {
   }).catch(()=>{
     console.log('Erro ao atualizar');
   })
-  }
-
-  change(){
-    if (this.profissional == false){
-        this.profissional = true
-    }else{
-      this.profissional = false;
-    }
-  }
-
-
-  cadastrarServicos(){
-    this.db.collection('servico').add(this.formGroup2.value).then(() =>{
-      console.log('Atualizado com sucesso');
-  }).catch(()=>{
-    console.log('Erro ao atualizar');
-  })
-
   }
 
   voltar(){

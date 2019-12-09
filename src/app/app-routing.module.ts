@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'privacidade', loadChildren: './privacidade/privacidade.module#PrivacidadePageModule' },
   { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
   { path: 'servicos', loadChildren: './servicos/servicos.module#ServicosPageModule' },
+  { path: 'perfil-pro', loadChildren: './perfil-pro/perfil-pro.module#PerfilProPageModule' },
 
  
 

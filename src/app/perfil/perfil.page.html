@@ -63,39 +63,10 @@
       </ion-input>
   </ion-item>
 
-  <div padding ></div>
-
-  <ion-item-divider color="danger" (click)="change()">
-      <ion-label>
-        Area do Profissional
-      </ion-label>
-    </ion-item-divider>
-    
-     <ion-item *ngIf="profissional">
-      <ion-icon name="list-box" slot="start"></ion-icon>
-      <ion-label> 
-          <p>Descrição</p>
-        </ion-label>
-    <ion-textarea formControlName="descricao">
-      {{perfil.descricao}}
-    </ion-textarea>
-    </ion-item>
 </form>
-  
-<div padding></div>
-    
-<form [formGroup]="formGroup2" *ngIf="profissional">
-    <ion-item>
-        <ion-icon name="mail" slot="start"></ion-icon>
-        <ion-label>
-            <p>Nome do Serviço:</p>
-          </ion-label>
-      <ion-input formControlName="nome"  type="text">
-        </ion-input>
-    </ion-item>
 
-
-
-</form>
+<ion-button color="danger" (click)="goPage(x = 'perfil-pro')">
+  Criar um Perfil profissional
+</ion-button>
 
 </ion-content>
