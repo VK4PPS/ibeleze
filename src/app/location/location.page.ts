@@ -71,7 +71,6 @@ export class LocationPage implements OnInit {
             },
             "properties": {
                 "nome": c.nome,
-                "servicos": c.servico,
                 "sobrenome": c.sobrenome,
                 "email": c.email,
                 "id": doc.payload.doc.id,

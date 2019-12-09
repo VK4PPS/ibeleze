@@ -59,7 +59,6 @@ export class PerfilProPage implements OnInit {
         let c = new Servico(); // Cria um novo objeto servicos
         c.setServico(doc.payload.doc.data(),doc.payload.doc.id); // coloca os dados do doc em servicos
         this.listaServicos.push(c); // adiciona este servicos a lista
-        console.log(this.listaServicos)
       },err=>{ // Em caso de erro, executa esssa linha
         console.log(err);
       })
