@@ -143,6 +143,10 @@ goPage(x: string){
   this.router.navigate([x]);
 }
 
+servicoDetalhes(idServico: string){
+  this.router.navigate(["servico-detalhes",{id: idServico}]);
+}
+
 //alerta que contem o formulario para criar serviços e que chama a função cadastrarServico()
  async alertServico() {
     const alert = await this.alertController.create({

@@ -92,7 +92,7 @@
 <ion-item>
   <div class="preset"> 
     <ion-card *ngFor="let item of listaServicos">
-        <ion-icon color="light" name="create" size="large" ></ion-icon>
+        <ion-icon color="light" name="create" size="large" (click)="servicoDetalhes(item.id)"></ion-icon>
         <ion-icon color="light" name="remove-circle" size="large" (click)="delServico(x = item.id)"></ion-icon>
         <ion-card-header>
           <ion-card-title class="h2">Nome: {{item.nome}}</ion-card-title>
