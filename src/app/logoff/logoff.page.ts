@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-logoff',
@@ -17,7 +18,8 @@ export class LogoffPage implements OnInit {
   constructor(public afAuth: AngularFireAuth,
     private formB : FormBuilder,
     private db: AngularFirestore, 
-    private router: Router) { }
+    private router: Router,
+    private toastCtrl : ToastController) { }
 
   ngOnInit() {
 
@@ -38,9 +40,18 @@ export class LogoffPage implements OnInit {
     this.afAuth.auth.signOut().then(()=>{
       localStorage.removeItem("uid");
       this.router.navigate(['/login']);
+      this.Toastera();
     }).catch(()=>{
       this.router.navigate(['/home']);
     })
+  }
+
+  async Toastera() {
+    const toast = await this.toastCtrl.create({
+      message: 'Deslogado com sucesso',
+      duration: 4000
+    });
+    toast.present();
   }
 
 }

@@ -22,10 +22,8 @@ export class LocationPage implements OnInit {
     servicos: string;
     dadosMapa: any;
     idUser : string;
-    id : string;
     imagem : any;
     
-
   style = 'mapbox://styles/mapbox/streets-v11';
   perfil = [];
   url: string;
@@ -156,12 +154,14 @@ export class LocationPage implements OnInit {
         this.servico = dadosMapa.features[0].properties.servicos;  
         this.sobrenome = dadosMapa.features[0].properties.sobrenome;  
         this.email = dadosMapa.features[0].properties.email;  
+
+        console.log(dadosMapa.features[0].properties)
     
         document.getElementById("nome").innerHTML = this.nome+" "+this.sobrenome;
         document.getElementById("email").innerHTML = this.email;
         document.getElementById("servicos").innerHTML = this.servico;
         
-        console.log(dadosMapa.features[0].properties.image);
+        //@ts-ignore
         document.getElementById("myImg").src = dadosMapa.features[0].properties.image;
         
     
@@ -178,15 +178,6 @@ export class LocationPage implements OnInit {
         },
         trackUserLocation: true
         }));
-  }
-
-  
-  downloadImage(){
-    this.id = document.getElementById("id").innerHTML;
-    let ref = this.firestorage.storage.ref().child(`perfil/${this.id}.jpg`);
-    ref.getDownloadURL().then(url =>{
-      this.imagem = url;
-    });
   }
 
   

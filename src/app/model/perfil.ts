@@ -6,6 +6,9 @@ export class Perfil{
     servico: string;
     uLongitude: number;
     uLatitude: number;
+    profissional: boolean;
+    descricao: string;
+
 
     setPerfil(obj: any){
         this.nome = obj.nome;
@@ -15,5 +18,6 @@ export class Perfil{
         this.servico = obj.servico;
         this.uLongitude = obj.uLongitude;
         this.uLatitude = obj.uLatitude;
+        this.profissional = obj.profissional;
     }
 }

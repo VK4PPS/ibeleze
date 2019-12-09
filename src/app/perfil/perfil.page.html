@@ -1,67 +1,101 @@
-
 <ion-content>
     
-      <div class="card">
-        <ion-item>
-        <ion-row >
-            <ion-col >
-                <div class="image-upload">
-                    <label for="file-input">
-                <div class="user-photo">
-                    <ion-avatar>
-                      <img src="{{imagem}}">
-                    </ion-avatar>
-                  </div>
-                  <div class="photo"><ion-icon name="camera"></ion-icon></div>
-                  </label>
-                    <input id="file-input" type="file" (change)="enviaArquivo($event)" /></div>
+  <div class="card">
+    <ion-item>
+    <ion-row >
+        <ion-col >
+            <div class="image-upload">
+                <label for="file-input">
+            <div class="user-photo">
+                <ion-avatar>
+                  <img src="{{imagem}}">
+                </ion-avatar>
+              </div>
+              <div class="photo"><ion-icon name="camera"></ion-icon></div>
+              </label>
+                <input id="file-input" type="file" (change)="enviaArquivo($event)" /></div>
+        </ion-col>
+            <ion-col>
+              <div class="preset">
+                <div class="h2"><ion-title>{{perfil.nome}} {{perfil.sobrenome}}</ion-title></div>
+    <ion-title><div class="h3" (click)="goPage(x = 'editarperfil')">Cancelar </div></ion-title>
+              </div>
             </ion-col>
-                <ion-col>
-                  <div class="preset">
-                    <div class="h2"><ion-title>{{perfil.nome}} {{perfil.sobrenome}}</ion-title></div>
-        <ion-title><div class="h3" (click)="goPage(x = 'editarperfil')">Cancelar </div></ion-title>
-                  </div>
-                </ion-col>
-                <ion-col>
-                  <div class="menu">
-                      <ion-icon  name="save"  slot="end" (click)="atualizar()" ></ion-icon></div>
-              </ion-col>
-              </ion-row>
-            </ion-item>
-          </div>
+            <ion-col>
+              <div class="menu">
+                  <ion-icon  name="save"  slot="end" (click)="atualizar()" ></ion-icon></div>
+          </ion-col>
+          </ion-row>
+        </ion-item>
+      </div>
 <form [formGroup]="formGroup">
 
-      <ion-item>
-          <ion-icon name="person" slot="start"></ion-icon>
-          <ion-label> 
-              <p>Nome:</p>
-            </ion-label>
-        <ion-input formControlName="nome" value="{{perfil.nome}}" type="text">
-          </ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-icon name="person" slot="start"></ion-icon>
-          <ion-label>
-              <p>Sobrenome:</p>
-            </ion-label>
-        <ion-input formControlName="sobrenome" value="{{perfil.sobrenome}}" type="text">
-          </ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-icon name="call" slot="start"></ion-icon>
-          <ion-label>
-              <p>Telefone:</p>
-            </ion-label>
-        <ion-input formControlName="telefone" value="{{perfil.telefone}}" type="text">
-          </ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-icon name="mail" slot="start"></ion-icon>
-          <ion-label>
-              <p>Email:</p>
-            </ion-label>
-        <ion-input formControlName="email" value="{{perfil.email}}" type="text">
-          </ion-input>
-      </ion-item>
+  <ion-item>
+      <ion-icon name="person" slot="start"></ion-icon>
+      <ion-label> 
+          <p>Nome:</p>
+        </ion-label>
+    <ion-input formControlName="nome" value="{{perfil.nome}}" type="text">
+      </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-icon name="person" slot="start"></ion-icon>
+      <ion-label>
+          <p>Sobrenome:</p>
+        </ion-label>
+    <ion-input formControlName="sobrenome" value="{{perfil.sobrenome}}" type="text">
+      </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-icon name="call" slot="start"></ion-icon>
+      <ion-label>
+          <p>Telefone:</p>
+        </ion-label>
+    <ion-input formControlName="telefone" value="{{perfil.telefone}}" type="text">
+      </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-icon name="mail" slot="start"></ion-icon>
+      <ion-label>
+          <p>Email:</p>
+        </ion-label>
+    <ion-input formControlName="email" value="{{perfil.email}}" type="text">
+      </ion-input>
+  </ion-item>
+
+  <div padding ></div>
+
+  <ion-item-divider color="danger" (click)="change()">
+      <ion-label>
+        Area do Profissional
+      </ion-label>
+    </ion-item-divider>
+    
+     <ion-item *ngIf="profissional">
+      <ion-icon name="list-box" slot="start"></ion-icon>
+      <ion-label> 
+          <p>Descrição</p>
+        </ion-label>
+    <ion-textarea formControlName="descricao">
+      {{perfil.descricao}}
+    </ion-textarea>
+    </ion-item>
 </form>
+  
+<div padding></div>
+    
+<form [formGroup]="formGroup2" *ngIf="profissional">
+    <ion-item>
+        <ion-icon name="mail" slot="start"></ion-icon>
+        <ion-label>
+            <p>Nome do Serviço:</p>
+          </ion-label>
+      <ion-input formControlName="nome"  type="text">
+        </ion-input>
+    </ion-item>
+
+
+
+</form>
+
 </ion-content>

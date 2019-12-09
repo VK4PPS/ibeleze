@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'contato', loadChildren: './contato/contato.module#ContatoPageModule' },
   { path: 'privacidade', loadChildren: './privacidade/privacidade.module#PrivacidadePageModule' },
   { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
+  { path: 'servicos', loadChildren: './servicos/servicos.module#ServicosPageModule' },
 
  
 

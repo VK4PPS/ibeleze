@@ -1,16 +1,7 @@
-<ion-header>
-  <ion-toolbar color="tertiary">
-      <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Contato</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding>
       <img src="https://i.imgur.com/xjWsSja.png" alt="" />
   <form [formGroup]="formGroup">
-      <ion-list>
+      
           <ion-item>
                 <ion-icon name="person" slot="start"></ion-icon>
               <ion-label position="floating">Nome</ion-label>
@@ -40,10 +31,10 @@
           <ion-item>
                 <ion-icon name="mail-open" slot="start"></ion-icon>
               <ion-label position="floating">Mensagem</ion-label>
-              <ion-textarea formControlName="mensagem" rows="3" cols="20" type="text"
+              <ion-textarea formControlName="mensagem" rows="5" cols="20" type="text"
                   placeholder="Digite a sua mensagem aqui..."></ion-textarea>
           </ion-item>
-      </ion-list>
+     
       <ion-button color="tertiary" expand="full" (click)="enviar()">Enviar
       </ion-button>
   </form>
