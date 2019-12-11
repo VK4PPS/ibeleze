@@ -18,7 +18,7 @@
             <ion-col>
               <div class="preset">
                 <div class="h2"><ion-title>{{perfilPro.nome}} {{perfilPro.sobrenome}}</ion-title></div>
-    <ion-title><div class="h3" (click)="goPage(x = 'perfilPro')">Cancelar </div></ion-title>
+    <ion-title><div class="h3" (click)="goPage(x = 'editarperfil')">Cancelar </div></ion-title>
               </div>
             </ion-col>
             <ion-col>
@@ -79,6 +79,7 @@
     <ion-input formControlName="descricao" value="{{perfilPro.descricao}}" type="text">
       </ion-input>
   </ion-item>
+</form>
 
 <ion-item>
   <div class="preset">
@@ -90,10 +91,10 @@
 </ion-item>
 
 <ion-item>
-  <div class="preset"> 
+  <div class="preset">
     <ion-card *ngFor="let item of listaServicos">
         <ion-icon color="light" name="create" size="large" (click)="servicoDetalhes(item.id)"></ion-icon>
-        <ion-icon color="light" name="remove-circle" size="large" (click)="delServico(x = this.id)"></ion-icon>
+        <ion-icon color="light" name="remove-circle" size="large" (click)="delServico(x = item.id)"></ion-icon>
         <ion-card-header>
           <ion-card-title class="h2">Nome: {{item.nome}}</ion-card-title>
           <ion-card-subtitle class="h3">R$:{{item.preco}}</ion-card-subtitle>
@@ -105,11 +106,6 @@
     </ion-card>
   </div>
 </ion-item>
-
-</form>
-
-
-
 
 
 

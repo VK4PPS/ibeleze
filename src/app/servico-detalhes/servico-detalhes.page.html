@@ -1,12 +1,8 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>servicoDetalhes</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 <ion-content>
 
   <form [formGroup]="formGroup">
-    <ion-list>
+   
       <ion-item>
         <ion-label floating>Nome:</ion-label>
         <ion-input formControlName="nome" value="{{servicos.nome}}" type="text">
@@ -27,19 +23,11 @@
             <ion-input formControlName="desc"  value="{{servicos.desc}}" type="text">
                </ion-input>
         </ion-item>
-  </ion-list>
-  <ion-row padding>
-      <ion-col size="6">
-          <ion-button expand="full" (click)="atualizar()">Atualizar</ion-button>
-      </ion-col>
-      <ion-col size="6">
-      </ion-col>
-      <ion-col size="4">
-          <ion-button color="danger" expand="full" (click)="delServico()">Excluir</ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
+ 
+  <ion-button color="tertiary" expand="full" (click)="atualizar()">Atualizar</ion-button>
+  <h4>OU</h4>
+  <ion-button color="tertiary" expand="full" (click)="delServico()">Excluir</ion-button>
 
 
-
+</form>
 </ion-content>
