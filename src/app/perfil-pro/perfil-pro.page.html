@@ -92,8 +92,13 @@
 <ion-item>
   <div class="preset"> 
     <ion-card *ngFor="let item of listaServicos">
+<<<<<<< HEAD
         <ion-icon color="light" name="create" size="large"></ion-icon>
         <ion-icon color="light" name="remove-circle" size="large"></ion-icon>
+=======
+        <ion-icon color="light" name="create" size="large" ></ion-icon>
+        <ion-icon color="light" name="remove-circle" size="large" (click)="delServico(x = item.id)"></ion-icon>
+>>>>>>> parent of 67d9ee6... Serviço detalhes em produção
         <ion-card-header>
           <ion-card-title class="h2">Nome: {{item.nome}}</ion-card-title>
           <ion-card-subtitle class="h3">R$:{{item.preco}}</ion-card-subtitle>
