@@ -83,6 +83,16 @@ export class AppComponent {
       icon: 'person'
     },
     {
+      title: 'Reclame Aqui',
+      url: '/reclameaqui',
+      icon: 'person'
+    },
+    {
+      title: 'Cadastro de Reclamação',
+      url: '/reclameaqui-cadastro',
+      icon: 'person'
+    },
+    {
       title: 'Sobre nós',
       url: '/sobre',
       icon: 'person'

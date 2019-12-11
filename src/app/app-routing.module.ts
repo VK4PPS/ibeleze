@@ -33,6 +33,8 @@ const routes: Routes = [
   { path: 'servicos', loadChildren: './servicos/servicos.module#ServicosPageModule' },
   { path: 'perfil-pro', loadChildren: './perfil-pro/perfil-pro.module#PerfilProPageModule' },
   { path: 'servico-detalhes', loadChildren: './servico-detalhes/servico-detalhes.module#ServicoDetalhesPageModule' },
+  { path: 'reclameaqui', loadChildren: './reclameaqui/reclameaqui.module#ReclameaquiPageModule' },
+  { path: 'reclameaqui-cadastro', loadChildren: './reclameaqui-cadastro/reclameaqui-cadastro.module#ReclameaquiCadastroPageModule' },
 
  
 
