@@ -147,6 +147,15 @@ servicoDetalhes(idServico: string){
   this.router.navigate(["servico-detalhes",{id: idServico}]);
 }
 
+delServico(x : string){
+  this.db.collection('servicos').doc(x).delete().then(() =>{
+    this.ngOnInit()
+    console.log('Deletado com sucesso');
+}).catch(()=>{
+  console.log('Erro ao deletar');
+})
+}
+
 //alerta que contem o formulario para criar serviços e que chama a função cadastrarServico()
  async alertServico() {
     const alert = await this.alertController.create({

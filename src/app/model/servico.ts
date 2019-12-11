@@ -4,6 +4,7 @@ export class Servico{
     preco : string;
     desc : string;
     duracao: string;
+    uid : string;
 
     setServico(obj : any, id : any){
         this.id = id;

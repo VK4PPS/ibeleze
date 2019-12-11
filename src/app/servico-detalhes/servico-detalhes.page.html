@@ -3,7 +3,43 @@
     <ion-title>servicoDetalhes</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+
+  <form [formGroup]="formGroup">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Nome:</ion-label>
+        <ion-input formControlName="nome" value="{{servicos.nome}}" type="text">
+          </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Duração:</ion-label>
+          <ion-input formControlName="duracao"  value="{{servicos.duracao}}" type="text">
+             </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Preço:</ion-label>
+        <ion-input formControlName="preco"  value="{{servicos.preco}}" type="number">
+           </ion-input>
+          </ion-item>
+           <ion-item>
+            <ion-label floating>Descrição:</ion-label>
+            <ion-input formControlName="desc"  value="{{servicos.desc}}" type="text">
+               </ion-input>
+        </ion-item>
+  </ion-list>
+  <ion-row padding>
+      <ion-col size="6">
+          <ion-button expand="full" (click)="atualizar()">Atualizar</ion-button>
+      </ion-col>
+      <ion-col size="6">
+      </ion-col>
+      <ion-col size="4">
+          <ion-button color="danger" expand="full" (click)="delServico()">Excluir</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+
 
 </ion-content>
