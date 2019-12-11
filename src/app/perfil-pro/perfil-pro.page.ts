@@ -212,16 +212,6 @@ goPage(x: string){
   })
   }
 
-  delServico(x : string){
-    this.db.collection('servicos').doc(x).delete().then(() =>{
-      this.loadPerfil();
-      this.Toastera();
-      console.log('Deletado com sucesso');
-  }).catch(()=>{
-    console.log('Erro ao atualizar');
-  })
-  }
-
 
 
 }
