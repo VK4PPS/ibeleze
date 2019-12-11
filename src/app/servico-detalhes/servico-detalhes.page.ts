@@ -72,7 +72,7 @@ export class ServicoDetalhesPage implements OnInit {
       
   
       console.log('Atualizado com sucesso');
-      this.ngOnInit()
+      this.router.navigate(["perfil-pro"]);
   })
   }
   

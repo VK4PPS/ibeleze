@@ -130,6 +130,7 @@ export class PerfilProPage implements OnInit {
     let urlImage = this.firestorage.storage.ref().child(`perfil/PRO${this.idUser}.jpg`);
     urlImage.put(this.imagem).then(resp =>{
       this.downloadImage();
+
     });
   }
 
@@ -137,6 +138,7 @@ downloadImage(){
   let ref = this.firestorage.storage.ref().child(`perfil/PRO${this.idUser}.jpg`);
   ref.getDownloadURL().then(url =>{
     this.imagem = url;
+    
   });
 }
 goPage(x: string){

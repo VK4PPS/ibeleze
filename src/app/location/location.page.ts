@@ -5,7 +5,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import * as mapboxgl from "mapbox-gl"
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Perfil } from './../model/perfil';
+import { PerfilPro } from './../model/perfilPro';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
 
@@ -23,7 +23,7 @@ export class LocationPage implements OnInit {
     dadosMapa: any;
     idUser : string;
     imagem : any;
-    
+
   style = 'mapbox://styles/mapbox/streets-v11';
   perfil = [];
   url: string;
@@ -50,17 +50,17 @@ export class LocationPage implements OnInit {
       this.latitude = resp.coords.latitude
 
      //Insere as informações do firebase no perfil[]
-      this.db.collection('perfil').snapshotChanges().subscribe(response=>{ 
+      this.db.collection('perfilPro').snapshotChanges().subscribe(response=>{ 
 
 
         
         response.forEach(doc=>{ 
         
 
-          this.firestorage.storage.ref().child(`perfil/${doc.payload.doc.id}.jpg`).getDownloadURL().then(url =>{
-          let c = new Perfil();
+          this.firestorage.storage.ref().child(`perfil/PRO${doc.payload.doc.id}.jpg`).getDownloadURL().then(url =>{
+          let c = new PerfilPro();
           //@ts-ignore
-          c.setPerfil(doc.payload.doc.data(),doc.payload.doc.id);
+          c.setPerfilPro(doc.payload.doc.data(),doc.payload.doc.id);
           
           
           this.perfil.push({
@@ -73,6 +73,8 @@ export class LocationPage implements OnInit {
                 "nome": c.nome,
                 "sobrenome": c.sobrenome,
                 "email": c.email,
+                "qual": c.qualificacoes,
+                "desc": c.descricao,
                 "id": doc.payload.doc.id,
                 "image" : url
     
@@ -146,19 +148,24 @@ export class LocationPage implements OnInit {
     
       
       
+      
       //ao clickar no marcador pega as informações do firebase inseridas no mapa
-      this.map.on('click', 'locations', function (dadosMapa) {
+       this.map.on('click', 'locations', function (dadosMapa) {
     
+        
+        
         this.nome = dadosMapa.features[0].properties.nome;
-        this.servico = dadosMapa.features[0].properties.servicos;  
         this.sobrenome = dadosMapa.features[0].properties.sobrenome;  
         this.email = dadosMapa.features[0].properties.email;  
+        this.qual = dadosMapa.features[0].properties.qual;  
+        this.desc = dadosMapa.features[0].properties.desc;  
 
         console.log(dadosMapa.features[0].properties)
     
         document.getElementById("nome").innerHTML = this.nome+" "+this.sobrenome;
         document.getElementById("email").innerHTML = this.email;
-        document.getElementById("servicos").innerHTML = this.servico;
+        document.getElementById("qual").innerHTML = this.qual;
+        document.getElementById("desc").innerHTML = this.desc;
         
         //@ts-ignore
         document.getElementById("myImg").src = dadosMapa.features[0].properties.image;
@@ -178,7 +185,4 @@ export class LocationPage implements OnInit {
         trackUserLocation: true
         }));
   }
-
-  
-  
 }
