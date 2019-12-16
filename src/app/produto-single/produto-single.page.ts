@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Produtos } from 'src/model/produtos';
-import { Sevicos } from 'src/model/servicos';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -10,6 +9,7 @@ import { Carrinho } from 'src/model/carrinho';
 import { Item } from 'src/model/item';
 import { CarrinhoService } from 'src/services/carrinho.service';
 import { ToastController } from '@ionic/angular';
+import { Servico } from '../model/servico';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class ProdutoSinglePage implements OnInit {
   id: string;
   formGroup: FormGroup;
   produtos: Produtos = new Produtos();
-  servicos: Servicos = new Servicos();
+  servicos: Servico = new Servico();
   carrinho: Carrinho = new Carrinho();
   imagem: any;
   idimg: string;

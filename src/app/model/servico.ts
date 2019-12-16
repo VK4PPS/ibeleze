@@ -5,6 +5,8 @@ export class Servico{
     desc : string;
     duracao: string;
     uid : string;
+  imagem: any;
+  categoria: any;
 
     setServico(obj : any, id : any){
         this.id = id;

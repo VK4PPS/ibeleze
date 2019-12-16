@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produtos } from 'src/model/produtos';
-import { Servicos } from 'src/model/servicos';
+import { Servico } from '../model/servico';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 
@@ -11,7 +11,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
   styleUrls: ['./produtos.page.scss'],
 })
 export class ProdutosPage implements OnInit {
-  public listaServicos: Servicos[] = [];
+  public listaServicos: Servico[] = [];
   public goalList: any[];
   public loadedGoalList: any[];
   
@@ -26,8 +26,8 @@ export class ProdutosPage implements OnInit {
       this.loadedGoalList = this.listaServicos;
       listaServicos.forEach(doc => {
 
-        let p = new Servicos();
-        p.setServicos(doc.payload.doc.data(), doc.payload.doc.id);
+        let p = new Servico();
+        p.setServico(doc.payload.doc.data(), doc.payload.doc.id);
 
 
         let ref = this.fireStorage.storage.ref().child(`produtos/${p.id}.jpg`);
