@@ -1,23 +1,63 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
+  <ion-toolbar color="warning">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Carrinho</ion-title>
+    <ion-title class="title">Carrinho</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of pagamento-pay-pal" lines="inset">
-      <ion-avatar slot="start">
-        <img src="{{item.imagem}}" href="/produtos" />
-      </ion-avatar>
-      {{ item.quantidade }} x {{ item.nome }} - {{ item.preco | currency:'BRL' }}
-      <ion-label slot="end" text-right>{{ (item.preco * item.quantidade) | currency:'BRL' }}</ion-label>
+ 
+  <ion-list class="list">
+      <h2 text-align="center">Carrinho</h2>
+  <ion-item *ngFor="let i of carrinho.items">
+      <ion-label slot="start">
+        <img src="{{i.produto.imagem}}">
+      </ion-label>
+      <ion-label>
+        <h2>{{i.produto.nome}}</h2>
+        
+        <h3>{{i.produto.preco | currency:'BRL'}}</h3> 
+        <ion-button color="danger" (click)="removeProduto(i.produto)">Remover</ion-button>
+      </ion-label>
     </ion-item>
+
+
     <ion-item>
-      Total: <span slot="end">{{ total | currency:'BRL' }}</span>
+
+      <h4>Total: {{total | currency:'BRL'}}</h4>
+  
+      
+  
+      
     </ion-item>
-  </ion-list>
+    <ion-button icon-right size="small"  shape="round" tappable (click)="finalizarCompra()" color="success">Finalizar Compra</ion-button>
+
+
+
+</ion-list>
+
 </ion-content>
+
+<ion-tab-bar>
+  <ion-tab-button (click)="goPerfil()">
+    <ion-icon name="person"></ion-icon>
+    <ion-label>Perfil</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button (click)="goFeed()">
+    <ion-icon name="star"></ion-icon>
+    <ion-label>FeedBack</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button (click)="goCart()">
+    <ion-icon name="cart"></ion-icon>
+    <ion-badge color="primary">{{this.carrinho.items.length}}</ion-badge>
+  </ion-tab-button>
+
+  <ion-tab-button (click)="goPedidos()">
+    <ion-icon name="list-box"></ion-icon>
+    <ion-label>Pedidos</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>

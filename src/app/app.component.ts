@@ -23,6 +23,11 @@ export class AppComponent {
       icon: 'home'
     },
     {
+      title: 'Produtos',
+      url: '/produtos',
+      icon: 'nutrition'
+    },
+    {
       title: 'Feedback',
       url: '/feedback',
       icon: 'bookmarks'
