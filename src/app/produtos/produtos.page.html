@@ -10,7 +10,7 @@
 <ion-content>
   <ion-searchbar placeholder="Digite o nome do produto..." showCancelButton (ionInput)="filterList($event)"></ion-searchbar>
     <ion-list>
-        <ion-item *ngFor="let item of listaServicos">
+        <ion-item *ngFor="let item of listaProdutos">
             <ion-avatar slot="start">
               <img src="{{item.imagem}}" href="/produtos" />
             </ion-avatar>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produtos } from 'src/model/produtos';
-import { Servico } from '../model/servico';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 
@@ -11,7 +10,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
   styleUrls: ['./produtos.page.scss'],
 })
 export class ProdutosPage implements OnInit {
-  public listaServicos: Servico[] = [];
+  public listaProdutos: Produtos[] = [];
   public goalList: any[];
   public loadedGoalList: any[];
   
@@ -20,22 +19,22 @@ export class ProdutosPage implements OnInit {
 
   }
   ngOnInit() {
-    this.db.collection(`produtos`).snapshotChanges().subscribe(listaServicos => {
-      this.listaServicos = [];
-      this.goalList = this.listaServicos;
-      this.loadedGoalList = this.listaServicos;
-      listaServicos.forEach(doc => {
+    this.db.collection(`produtos`).snapshotChanges().subscribe(listaProdutos => {
+      this.listaProdutos = [];
+      this.goalList = this.listaProdutos;
+      this.loadedGoalList = this.listaProdutos;
+      listaProdutos.forEach(doc => {
 
-        let p = new Servico();
-        p.setServico(doc.payload.doc.data(), doc.payload.doc.id);
+        let p = new Produtos();
+        p.setProdutos(doc.payload.doc.data(), doc.payload.doc.id);
 
 
         let ref = this.fireStorage.storage.ref().child(`produtos/${p.id}.jpg`);
         ref.getDownloadURL().then(url => {
           p.imagem = url;
-          this.listaServicos.push(p);
+          this.listaProdutos.push(p);
         }).catch(() => {
-          this.listaServicos.push(p);
+          this.listaProdutos.push(p);
           p.imagem = "../../assets/img/default-store.jpg";
         })
       }, err => {
@@ -46,7 +45,7 @@ export class ProdutosPage implements OnInit {
 
   }
   initializeItems(): void {
-    this.listaServicos = this.loadedGoalList;
+    this.listaProdutos = this.loadedGoalList;
   }
 
   filterList(evt) {
@@ -57,7 +56,7 @@ export class ProdutosPage implements OnInit {
       return;
     }
 
-    this.listaServicos = this.listaServicos.filter(currentGoal => {
+    this.listaProdutos = this.listaProdutos.filter(currentGoal => {
       if (currentGoal.nome && searchTerm) {
         if (currentGoal.nome.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
           return true;

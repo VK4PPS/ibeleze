@@ -17,9 +17,9 @@
       </ion-label>
       <ion-label>
         <h2>{{i.produto.nome}}</h2>
-        
+        <h3>Tamanho: {{i.produto.tamanho}}</h3>
         <h3>{{i.produto.preco | currency:'BRL'}}</h3> 
-        <ion-button color="danger" (click)="removeProduto(i.produto)">Remover</ion-button>
+        <ion-button color="danger" href="/cart" (click)="removeProduto(i.produto)">Remover</ion-button>
       </ion-label>
     </ion-item>
 
@@ -28,11 +28,8 @@
 
       <h4>Total: {{total | currency:'BRL'}}</h4>
   
-      
-  
-      
     </ion-item>
-    <ion-button icon-right size="small"  shape="round" tappable (click)="finalizarCompra()" color="success">Finalizar Compra</ion-button>
+    <ion-button icon-right size="small"  shape="round" tappable (click)="goPage(x = 'pagamento-pay-pal')" color="success">Finalizar Compra</ion-button>
 
 
 

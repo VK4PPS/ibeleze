@@ -9,7 +9,6 @@ import { Carrinho } from 'src/model/carrinho';
 import { Item } from 'src/model/item';
 import { CarrinhoService } from 'src/services/carrinho.service';
 import { ToastController } from '@ionic/angular';
-import { Servico } from '../model/servico';
 
 
 @Component({
@@ -21,7 +20,6 @@ export class ProdutoSinglePage implements OnInit {
   id: string;
   formGroup: FormGroup;
   produtos: Produtos = new Produtos();
-  servicos: Servico = new Servico();
   carrinho: Carrinho = new Carrinho();
   imagem: any;
   idimg: string;
@@ -46,17 +44,18 @@ export class ProdutoSinglePage implements OnInit {
   }
 
   ngOnInit() {
-    
     this.db.collection("produtos")
       .doc(this.id).get().subscribe(response => {
 
         let ref = this.firestorage.storage.ref().child(`produtos/${this.id}.jpg`);
         ref.getDownloadURL().then(url => {
-          this.servicos.id = this.id;
-          this.servicos.imagem = url;
-          this.servicos.nome = response.data().nome;
-          this.servicos.preco = response.data().preco;
-          this.servicos.categoria = response.data().categoria;
+          this.produtos.id = this.id;
+          this.produtos.imagem = url;
+          this.produtos.nome = response.data().nome;
+          this.produtos.estoque = response.data().estoque;
+          this.produtos.descricao = response.data().descricao;
+          this.produtos.preco = response.data().preco;
+          this.produtos.categoria = response.data().categoria;
           this.downloadImage();
           
         })
@@ -66,11 +65,11 @@ export class ProdutoSinglePage implements OnInit {
   }
 
   loadProdutos() {
-    this.db.collection("servicos").doc(this.id).get().subscribe(response => {
+    this.db.collection("produtos").doc(this.id).get().subscribe(response => {
       if (response.exists == false) {
         this.nProdutos();
       } else {
-        this.servicos;
+        this.produtos;
       }
     })
   }
@@ -83,7 +82,7 @@ export class ProdutoSinglePage implements OnInit {
       preco: "",
       categoria: "",
     }
-    this.db.collection('servicos').doc(this.id).set(json).then(() => { })
+    this.db.collection('produtos').doc(this.id).set(json).then(() => { })
   }
 
   addItem(p : Produtos){
@@ -117,11 +116,11 @@ export class ProdutoSinglePage implements OnInit {
   }
   
   downloadImage() {
-    let ref = this.firestorage.storage.ref().child(`servicos/${this.id}.jpg`);
+    let ref = this.firestorage.storage.ref().child(`produtos/${this.id}.jpg`);
     ref.getDownloadURL().then(url => {
       this.imagem = url;
     }).catch(()=>{
-      this.servicos.imagem = "../../assets/img/default-store.jpg";      
+      this.produtos.imagem = "../../assets/img/default-store.jpg";      
       })
   };
 

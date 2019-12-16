@@ -12,12 +12,13 @@
     <img src="{{imagem}}" class="card"alt="" />
     <ion-card-header>
       <ion-card-subtitle>Nome: {{produtos.nome}}</ion-card-subtitle>
+      <ion-card-title>Estoque: {{produtos.estoque}}</ion-card-title>
       <ion-label>Preço: {{produtos.preco | currency:'BRL'}}</ion-label>
     </ion-card-header>
     <ion-card-content>
       <ion-label>Descrição do serviço:</ion-label>
+      <p>{{produtos.descricao}}</p>
     </ion-card-content>
   </ion-card>
   <ion-button expand="block" color="warning" size="medium"  shape="round" tappablestyle="color: black;" (click)="addItem(produtos)">Adicionar no carrinho</ion-button>
-  <ion-button expand="block" color="warning" size="medium"  shape="round" tappablestyle="color: black;" (click)="comprar()">Comprar</ion-button>
 </ion-content>

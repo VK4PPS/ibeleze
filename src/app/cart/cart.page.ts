@@ -83,5 +83,7 @@ export class CartPage implements OnInit {
     this.car.setCart(cart); // atualiza o carrinho
     return cart;
   }
-
+  goPage(x: string){
+    this.router.navigate([x]);
+  }
 }
