@@ -9,8 +9,8 @@ import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal
 export class PagamentoPayPalPage implements OnInit {
   
   paymentAmount: string = '3.33';
-  currency: string = 'USD';
-  currencyIcon: string = '$';
+  currency: string = 'BRL';
+  currencyIcon: string = 'R$';
   
   constructor(private payPal: PayPal) {
   }
