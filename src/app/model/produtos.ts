@@ -1,4 +1,5 @@
-export class Produtos {
+export class Produtos {    
+
     id: string;
     nome: string;
     descricao: string;

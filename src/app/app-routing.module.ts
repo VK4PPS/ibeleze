@@ -39,6 +39,7 @@ const routes: Routes = [
   { path: 'produto-single', loadChildren: './produto-single/produto-single.module#ProdutoSinglePageModule' },
   { path: 'pedido-status', loadChildren: './pedido-status/pedido-status.module#PedidoStatusPageModule' },
   { path: 'compra-status', loadChildren: './compra-status/compra-status.module#CompraStatusPageModule' },
+  { path: 'favoritos', loadChildren: './favoritos/favoritos.module#FavoritosPageModule' },
 
  
 

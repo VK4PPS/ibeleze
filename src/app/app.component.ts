@@ -83,6 +83,11 @@ export class AppComponent {
       icon: 'person'
     },
     {
+      title: 'Favorito',
+      url: '/favoritos',
+      icon: 'person',
+    },
+    {
       title: 'Política de privacidade',
       url: '/privacidade',
       icon: 'person'

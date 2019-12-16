@@ -12,7 +12,6 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 
-
 @Component({
   selector: 'app-location',
   templateUrl: './location.page.html',
