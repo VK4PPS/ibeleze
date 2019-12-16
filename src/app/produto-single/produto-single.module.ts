@@ -5,12 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CartPage } from './cart.page';
+import { ProdutoSinglePage } from './produto-single.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CartPage
+    component: ProdutoSinglePage
   }
 ];
 
@@ -20,8 +20,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule 
+    ReactiveFormsModule
   ],
-  declarations: [CartPage]
+  declarations: [ProdutoSinglePage]
 })
-export class CartPageModule {}
+export class ProdutoSinglePageModule {}

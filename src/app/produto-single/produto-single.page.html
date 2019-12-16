@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar color="warning">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title class="title">{{produtos.nome}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <img src="{{imagem}}" class="card"alt="" />
+    <ion-card-header>
+      <ion-card-subtitle>Nome: {{produtos.nome}}</ion-card-subtitle>
+      <ion-label>Preço: {{produtos.preco | currency:'BRL'}}</ion-label>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Descrição do serviço:</ion-label>
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="block" color="warning" size="medium"  shape="round" tappablestyle="color: black;" (click)="addItem(produtos)">Adicionar no carrinho</ion-button>
+  <ion-button expand="block" color="warning" size="medium"  shape="round" tappablestyle="color: black;" (click)="comprar()">Comprar</ion-button>
+</ion-content>

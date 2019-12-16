@@ -1,0 +1,39 @@
+ion-title.title{
+    font-family: 'Amatic SC';
+    font-size: 35px;
+}
+
+ion-content {
+    text-align: center;
+    
+  }
+  
+  ion-item{
+  margin-bottom: 5px;
+  }
+  
+  div{
+    margin-top: 300px;
+  }
+  
+  .logo{
+    text-align: center;
+    font-size: 2.5rem;
+      width: 7.25rem;
+      height: 3.4375rem;
+  }
+  
+  ion-header{
+    text-align: center;
+  }
+  ion-card{
+    background: white;
+  }
+  
+      ion-list{
+         size: 30%;
+      }
+
+      .botao{
+          --text-align: right;
+      }

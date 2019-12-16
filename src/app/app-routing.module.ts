@@ -35,7 +35,10 @@ const routes: Routes = [
   { path: 'servico-detalhes', loadChildren: './servico-detalhes/servico-detalhes.module#ServicoDetalhesPageModule' },
   { path: 'reclameaqui', loadChildren: './reclameaqui/reclameaqui.module#ReclameaquiPageModule' },
   { path: 'reclameaqui-cadastro', loadChildren: './reclameaqui-cadastro/reclameaqui-cadastro.module#ReclameaquiCadastroPageModule' },
-  { path: 'perfil-leitura', loadChildren: './perfil-leitura/perfil-leitura.module#PerfilLeituraPageModule' },
+  { path: 'produtos', loadChildren: './produtos/produtos.module#ProdutosPageModule' },
+  { path: 'produto-single', loadChildren: './produto-single/produto-single.module#ProdutoSinglePageModule' },
+  { path: 'pedido-status', loadChildren: './pedido-status/pedido-status.module#PedidoStatusPageModule' },
+  { path: 'compra-status', loadChildren: './compra-status/compra-status.module#CompraStatusPageModule' },
 
  
 
