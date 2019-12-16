@@ -3,11 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import * as mapboxgl from "mapbox-gl"
+import * as turf from "@turf/turf";
+
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { PerfilPro } from './../model/perfilPro';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
+
+
 
 @Component({
   selector: 'app-location',
@@ -76,7 +80,9 @@ export class LocationPage implements OnInit {
                 "qual": c.qualificacoes,
                 "desc": c.descricao,
                 "id": doc.payload.doc.id,
-                "image" : url
+                "image" : url,
+                "latitude" : c.uLatitude,
+                "longitude" : c.uLongitude
     
             }
         });
@@ -159,9 +165,17 @@ export class LocationPage implements OnInit {
         this.email = dadosMapa.features[0].properties.email;  
         this.qual = dadosMapa.features[0].properties.qual;  
         this.desc = dadosMapa.features[0].properties.desc;  
+        this.mapLatitude = dadosMapa.features[0].properties.latitude;
+        this.mapLongitude = dadosMapa.features[0].properties.longitude;
 
-        console.log(dadosMapa.features[0].properties)
     
+        var from = turf.point([longitude, latitude]);
+        var to = turf.point([this.mapLongitude, this.mapLatitude]);
+        turf.distance(from, to);
+
+        var distance = turf.distance(from, to).toFixed(2);
+
+        document.getElementById("distancia").innerHTML = distance+"Km de distância" 
         document.getElementById("nome").innerHTML = this.nome+" "+this.sobrenome;
         document.getElementById("email").innerHTML = this.email;
         document.getElementById("qual").innerHTML = this.qual;
@@ -169,8 +183,6 @@ export class LocationPage implements OnInit {
         
         //@ts-ignore
         document.getElementById("myImg").src = dadosMapa.features[0].properties.image;
-        
-    
         
         
       });
