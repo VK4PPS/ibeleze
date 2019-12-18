@@ -10,6 +10,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { PerfilPro } from './../model/perfilPro';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -30,10 +31,12 @@ export class LocationPage implements OnInit {
   style = 'mapbox://styles/mapbox/streets-v11';
   perfil = [];
   url: string;
+  idpro: string;
                 
   constructor(private geolocation: Geolocation, private db: AngularFirestore, 
     public firestorage : AngularFireStorage, 
     private auth : AngularFireAuth,
+    private router : Router
     ) {
     (mapboxgl as typeof mapboxgl).accessToken = environment.mapbox.accessToken;
 
@@ -179,7 +182,7 @@ export class LocationPage implements OnInit {
         document.getElementById("email").innerHTML = this.email;
         document.getElementById("qual").innerHTML = this.qual;
         document.getElementById("desc").innerHTML = this.desc;
-        
+        document.getElementById("id").innerHTML = dadosMapa.features[0].properties.id;
         //@ts-ignore
         document.getElementById("myImg").src = dadosMapa.features[0].properties.image;
         
@@ -195,5 +198,10 @@ export class LocationPage implements OnInit {
         },
         trackUserLocation: true
         }));
+  }
+
+  perfilLeitura(){
+    this.idpro = document.getElementById("id").innerHTML
+    this.router.navigate(["perfil-leitura",{id: this.idpro}]);
   }
 }
