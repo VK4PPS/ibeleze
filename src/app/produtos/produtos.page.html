@@ -1,15 +1,7 @@
-<ion-header>
-  <ion-toolbar color="warning">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title class="title">Produtos</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <ion-item>
   <ion-searchbar placeholder="Digite o nome do produto..." showCancelButton (ionInput)="filterList($event)"></ion-searchbar>
-    <ion-list>
+  </ion-item>
         <ion-item *ngFor="let item of listaProdutos">
             <ion-avatar slot="start">
               <img src="{{item.imagem}}" href="/produtos" />
@@ -21,6 +13,6 @@
             </ion-label>
       <ion-icon name="arrow-forward" slot="end" (click)="goPage(item.id)"></ion-icon>
     </ion-item>
-    </ion-list>
+    
 
 </ion-content>

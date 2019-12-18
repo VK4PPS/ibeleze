@@ -24,7 +24,7 @@ export class PagamentoPayPalPage implements OnInit {
   }
 
   payWithPaypal() {
-    console.log("Pay ????");
+    console.log("Pay"+this.total);
     this.payPal.init({
       PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
       PayPalEnvironmentSandbox: 'AUYFGznQz84ELNV4bI1MRfEZTfG1kqOPv5uTCKxQqRqmluoejm35XgryiR5Xl0YM7HNm3Z8tQ6JLA20G'

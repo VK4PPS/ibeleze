@@ -1,24 +1,22 @@
-<ion-header>
-    <ion-toolbar color="warning">
-      <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
-      </ion-buttons>
-      <ion-title class="title">{{produtos.nome}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
 <ion-content>
   <ion-card class="welcome-card">
-    <img src="{{imagem}}" class="card"alt="" />
-    <ion-card-header>
-      <ion-card-subtitle>Nome: {{produtos.nome}}</ion-card-subtitle>
-      <ion-card-title>Estoque: {{produtos.estoque}}</ion-card-title>
-      <ion-label>Preço: {{produtos.preco | currency:'BRL'}}</ion-label>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-label>Descrição do serviço:</ion-label>
-      <p>{{produtos.descricao}}</p>
-    </ion-card-content>
+      <ion-item>
+        <ion-avatar><img src="{{imagem}}"/></ion-avatar>
+        </ion-item>
+        
+        <ion-item>
+    <ion-col><h2>Categoria:</h2></ion-col> <ion-col><p>{{produtos.nome}}</p></ion-col>
+    </ion-item>
+      <ion-item>
+        <ion-col><h2>Preço:</h2></ion-col> <ion-col><p>{{produtos.preco | currency:'BRL'}}</p></ion-col>
+    </ion-item>
+    <ion-item>
+      <h2>Descrição do serviço:</h2>
+    </ion-item>
+    <ion-item>
+    <p>{{produtos.descricao}}</p>
+  </ion-item>
   </ion-card>
-  <ion-button expand="block" color="warning" size="medium"  shape="round" tappablestyle="color: black;" (click)="addItem(produtos)">Adicionar no carrinho</ion-button>
+  <ion-button expand="block" color="tertiary" size="medium"  shape="round" tappablestyle="color: black;" (click)="addItem(produtos)">Adicionar no carrinho</ion-button>
+<div padding-top="30px"></div>
 </ion-content>

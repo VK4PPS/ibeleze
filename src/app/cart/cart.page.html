@@ -1,24 +1,12 @@
-<ion-header>
-  <ion-toolbar color="warning">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title class="title">Carrinho</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
- 
-  <ion-list class="list">
-      <h2 text-align="center">Carrinho</h2>
   <ion-item *ngFor="let i of carrinho.items">
       <ion-label slot="start">
         <img src="{{i.produto.imagem}}">
       </ion-label>
       <ion-label>
         <h2>{{i.produto.nome}}</h2>
-        <h3>Tamanho: {{i.produto.tamanho}}</h3>
-        <h3>{{i.produto.preco | currency:'BRL'}}</h3> 
+        <h2>Tamanho: {{i.produto.tamanho}}</h2>
+        <p>{{i.produto.preco | currency:'BRL'}}</p> 
         <ion-button color="danger" href="/cart" (click)="removeProduto(i.produto)">Remover</ion-button>
       </ion-label>
     </ion-item>
@@ -29,12 +17,9 @@
       <h4>Total: {{total | currency:'BRL'}}</h4>
   
     </ion-item>
+    <div class="finalizar">
     <ion-button icon-right size="small"  shape="round" tappable (click)="goPage(x = 'pagamento-pay-pal')" color="success">Finalizar Compra</ion-button>
-
-
-
-</ion-list>
-
+  </div>
 </ion-content>
 
 <ion-tab-bar>
