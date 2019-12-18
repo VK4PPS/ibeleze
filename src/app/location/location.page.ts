@@ -200,8 +200,8 @@ export class LocationPage implements OnInit {
         }));
   }
 
-  perfilLeitura(){
-    this.idpro = document.getElementById("id").innerHTML
-    this.router.navigate(["perfil-leitura",{id: this.idpro}]);
+  servicosRouter(){
+   // this.idpro = document.getElementById("id").innerHTML
+    this.router.navigate(["produtos"]);//,{id: this.idpro}]);
   }
 }
